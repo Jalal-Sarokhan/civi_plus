@@ -1,14 +1,71 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Test</title>
+    <title>Dein Name - Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Test</h1>
-    <h4>Test</h4>
-    <h5>test </h5>
-    <h3>jjjj</h3>
+    <header>
+        <h1>Dein Name</h1>
+        <nav>
+            <ul>
+                <li><a href="#about">Über mich</a></li>
+                <li><a href="#experience">Erfahrung</a></li>
+                <li><a href="#contact">Kontakt</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section id="about">
+        <h2>Über mich</h2>
+        <p>Hier kannst du etwas über dich selbst schreiben.</p>
+    </section>
+    <section id="experience">
+        <h2>Erfahrung</h2>
+        <p>Hier kannst du deine Erfahrungen und Qualifikationen auflisten.</p>
+    </section>
+    <section id="contact">
+        <h2>Kontakt</h2>
+        <p>Kontaktinformationen hier.</p>
+    </section>
+    <footer>
+        <p>&copy; 2024 Dein Name</p>
+    </footer>
 </body>
 </html>
+<script>
+    // JavaScript-Code hier
+
+    // Beispiel: Scrollen zu Abschnitten mit Smooth-Scrolling
+    const navLinks = document.querySelectorAll('nav ul li a');
+
+    navLinks.forEach(link => {
+        link.addEventListener('click', e => {
+            e.preventDefault();
+
+            const targetId = link.getAttribute('href').substring(1);
+            const targetElement = document.getElementById(targetId);
+
+            window.scrollTo({
+                top: targetElement.offsetTop - 50, // Offset für Header
+                behavior: 'smooth'
+            });
+        });
+    });
+
+    // Beispiel: Hervorheben des aktuellen Abschnitts im Navigationsmenü beim Scrollen
+    window.addEventListener('scroll', () => {
+        const fromTop = window.scrollY + 50; // Offset für Header
+        const sections = document.querySelectorAll('section');
+
+        sections.forEach(section => {
+            if (fromTop >= section.offsetTop && fromTop < section.offsetTop + section.offsetHeight) {
+                const id = section.getAttribute('id');
+                const currentNavLink = document.querySelector(`nav ul li a[href="#${id}"]`);
+                navLinks.forEach(link => link.classList.remove('active'));
+                currentNavLink.classList.add('active');
+            }
+        });
+    });
+</script>
