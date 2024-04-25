@@ -84,3 +84,7 @@ nav ul li a.active {
 .personal-info {
     margin-left: 20px; /* Fügt Abstand zwischen Bild und Informationen hinzu */
 }
+img {
+    height: 140px; 
+    width: 140px;
+}
