@@ -24,7 +24,7 @@ jobs:
           # Zum Beispiel: npm run build
 
       - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
+        uses: https://jalal-sarokhan.github.io/civi/
         with:
           deploy_key: ${{ secrets.ACCESS_TOKEN }}
           publish_dir: ./
