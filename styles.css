@@ -1,8 +1,9 @@
-/* Hier kannst du deine CSS-Stile definieren */
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+    overflow-y: scroll; /* Fügt eine vertikale Scrollbar hinzu */
 }
 
 header {
@@ -43,4 +44,12 @@ footer {
 nav ul li a.active {
     color: #ff9900; /* Farbe des aktiven Links */
     font-weight: bold; /* Schriftstil des aktiven Links */
+}
+
+.about-info {
+    display: flex; /* Nutzt Flexbox für das Layout */
+}
+
+.personal-info {
+    margin-left: 20px; /* Fügt Abstand zwischen Bild und Informationen hinzu */
 }
