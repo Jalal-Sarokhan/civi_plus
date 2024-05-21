@@ -59,6 +59,13 @@
             color: white;
             cursor: pointer;
         }
+        select {
+            background-color: #333;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 5px;
+        }
     </style>
 </head>
 <body>
@@ -69,51 +76,122 @@
                 <li><a href="#experience">Erfahrung</a></li>
                 <li><a href="#projects">Projekte</a></li>
                 <li><a href="#contact">Kontakt</a></li>
+                <li>
+                    <select id="languageSelector">
+                        <option value="de">Deutsch</option>
+                        <option value="en">English</option>
+                        <option value="ku">Kurdish</option>
+                        <option value="ar">العربية</option>
+                    </select>
+                </li>
             </ul>
         </nav>
     </header>
     <main>
         <section id="about">
-            <h1>Über mich</h1>
+            <h1 data-lang="de">Über mich</h1>
+            <h1 data-lang="en" style="display:none;">About Me</h1>
+            <h1 data-lang="ku" style="display:none;">Di derbarê min de</h1>
+            <h1 data-lang="ar" style="display:none;"> معلومات عنّي</h1>
             <img src="foto.png" alt="Bild von Jalal Sarokhan" class="profile-pic">
-            <p>Ich bin Jalal Sarokhan, ein Softwareentwickler mit Erfahrung in Java, JavaScript, C#, und teilweise auch Python.</p>
-            <p>Technologien wie Git, Docker, Kubernetes sowie automatisierte Test-Tools wie Jenkins sind mir ebenfalls vertraut.</p>
+            <p data-lang="de">Ich bin Jalal Sarokhan, ein Softwareentwickler mit Erfahrung in Java, JavaScript, C#, und teilweise auch Python.</p>
+            <p data-lang="en" style="display:none;">I am Jalal Sarokhan, a software developer with experience in Java, JavaScript, C#, and some Python.</p>
+            <p data-lang="ku" style="display:none;">Ez Jalal Sarokhan im, pêşketina nivîsarê bi tecrûbeyek di Java, JavaScript, C#, û hinek Python de.</p>
+            <p data-lang="ar" style="display:none;">أنا جلال سروخان، مطور برمجيات ذو خبرة في Java، JavaScript، C#، وبعض Python.</p>
+            <p data-lang="de">Technologien wie Git, Docker, Kubernetes sowie automatisierte Test-Tools wie Jenkins sind mir ebenfalls vertraut.</p>
+            <p data-lang="en" style="display:none;">Technologies like Git, Docker, Kubernetes, and automated testing tools like Jenkins are also familiar to me.</p>
+            <p data-lang="ku" style="display:none;">Tehnolojiyên wek Git, Docker, Kubernetes, û amûrên testkirina otomatîk wek Jenkins jî min têne nas kirin.</p>
+            <p data-lang="ar" style="display:none;">التقنيات مثل Git و Docker و Kubernetes وأدوات الاختبار التلقائي مثل Jenkins مألوفة أيضًا بالنسبة لي.</p>
         </section>
         <section id="experience">
-            <h1>Erfahrung</h1>
+            <h1 data-lang="de">Erfahrung</h1>
+            <h1 data-lang="en" style="display:none;">Experience</h1>
+            <h1 data-lang="ku" style="display:none;">Têcrûbeyê</h1>
+            <h1 data-lang="ar" style="display:none;">الخبرة</h1>
             <ul>
-                <li><strong>Firma XYZ</strong> - Softwareentwickler (Januar 2020 - Heute)</li>
-                <li><strong>Firma ABC</strong> - Junior Entwickler (März 2018 - Dezember 2019)</li>
+                <li data-lang="de"><strong>Firma XYZ</strong> - Softwareentwickler (Januar 2020 - Heute)</li>
+                <li data-lang="en" style="display:none;"><strong>Company XYZ</strong> - Software Developer (January 2020 - Present)</li>
+                <li data-lang="ku" style="display:none;"><strong>Şîrket XYZ</strong> - Pêşkeftina Nivîsar (Çil Îlon 2020 - Niha)</li>
+                <li data-lang="ar" style="display:none;"><strong>شركة XYZ</strong> - مطور برمجيات (يناير 2020 - الآن)</li>
+                <li data-lang="de"><strong>Firma ABC</strong> - Junior Entwickler (März 2018 - Dezember 2019)</li>
+                <li data-lang="en" style="display:none;"><strong>Company ABC</strong> - Junior Developer (March 2018 - December 2019)</li>
+                <li data-lang="ku" style="display:none;"><strong>Şîrket ABC</strong> - Pêşkeftina Nivîsarê ya Bêrî (Adar 2018 - Tîrmeh 2019)</li>
+                <li data-lang="ar" style="display:none;"><strong>شركة ABC</strong> - مطور مبتدئ (مارس 2018 - ديسمبر 2019)</li>
             </ul>
         </section>
         <section id="projects">
-            <h1>Projekte</h1>
+            <h1 data-lang="de">Projekte</h1>
+            <h1 data-lang="en" style="display:none;">Projects</h1>
+            <h1 data-lang="ku" style="display:none;">Projekten</h1>
+            <h1 data-lang="ar" style="display:none;">المشاريع</h1>
             <div class="project">
-                <h2>Projekt P-W</h2>
-                <p>Portfolio-Webseite</p>
-                <a href="https://jalal-sarokhan.github.io/civi/" target="_blank" rel="noopener noreferrer">Mehr erfahren</a>
+                <h2 data-lang="de">Projekt P-W</h2>
+                <h2 data-lang="en" style="display:none;">Project P-W</h2>
+                <h2 data-lang="ku" style="display:none;">Projekta P-W</h2>
+                <h2 data-lang="ar" style="display:none;">مشروع P-W</h2>
+                <p data-lang="de">Portfolio-Webseite</p>
+                <p data-lang="en" style="display:none;">Portfolio Website</p>
+                <p data-lang="ku" style="display:none;">Malpera Portfolio</p>
+                <p data-lang="ar" style="display:none;">موقع المحفظة</p>
+                <a href="https://jalal-sarokhan.github.io/civi/" target="_blank" rel="noopener noreferrer" data-lang="de">Mehr erfahren</a>
+                <a href="https://jalal-sarokhan.github.io/civi/" target="_blank" rel="noopener noreferrer" data-lang="en" style="display:none;">Learn More</a>
+                <a href="https://jalal-sarokhan.github.io/civi/" target="_blank" rel="noopener noreferrer" data-lang="ku" style="display:none;">Zêdetir Fêr Bibe</a>
+                <a href="https://jalal-sarokhan.github.io/civi/" target="_blank" rel="noopener noreferrer" data-lang="ar" style="display:none;">أعرف أكثر</a>
             </div>
             <div class="project">
-                <h2>Angular Test</h2>
-                <p>Beschreibung der grundlegenden Eigenschaften von Angular</p>
-                <a href="https://jalal-sarokhan.github.io/J-S/" target="_blank" rel="noopener noreferrer">Mehr erfahren</a>
+                <h2 data-lang="de">Angular Test</h2>
+                <h2 data-lang="en" style="display:none;">Angular Test</h2>
+                <h2 data-lang="ku" style="display:none;">Angular Test</h2>
+                <h2 data-lang="ar" style="display:none;">اختبار Angular</h2>
+                <p data-lang="de">Beschreibung der grundlegenden Eigenschaften von Angular</p>
+                <p data-lang="en" style="display:none;">Description of the basic features of Angular</p>
+                <p data-lang="ku" style="display:none;">Pêşandana taybetmendiyên bingehîn yên Angularê</p>
+                <p data-lang="ar" style="display:none;">وصف الميزات الأساسية لـ Angular</p>
+                <a href="https://jalal-sarokhan.github.io/J-S/" target="_blank" rel="noopener noreferrer" data-lang="de">Mehr erfahren</a>
+                <a href="https://jalal-sarokhan.github.io/J-S/" target="_blank" rel="noopener noreferrer" data-lang="en" style="display:none;">Learn More</a>
+                <a href="https://jalal-sarokhan.github.io/J-S/" target="_blank" rel="noopener noreferrer" data-lang="ku" style="display:none;">Zêdetir Fêr Bibe</a>
+                <a href="https://jalal-sarokhan.github.io/J-S/" target="_blank" rel="noopener noreferrer" data-lang="ar" style="display:none;">أعرف أكثر</a>
             </div>
             <div class="project">
-                <h2>News</h2>
-                <p>Nachrichten API, wobei die API wird in GITHUB aus Datenschutz-richtlinien nicht funktionieren!</p>
-                <a href="https://jalal-sarokhan.github.io/news/" target="_blank" rel="noopener noreferrer">Mehr erfahren</a>
+                <h2 data-lang="de">News</h2>
+                <h2 data-lang="en" style="display:none;">News</h2>
+                <h2 data-lang="ku" style="display:none;">Nûçe</h2>
+                <h2 data-lang="ar" style="display:none;">الأخبار</h2>
+                <p data-lang="de">Nachrichten API, wobei die API wird in GITHUB aus Datenschutz-richtlinien nicht funktionieren!</p>
+                <p data-lang="en" style="display:none;">News API, the API will not work on GITHUB due to privacy policies!</p>
+                <p data-lang="ku" style="display:none;">API-ya Nûçeyan, API li GITHUB-an nayê xebitandin ji bo politikayên taybetmendiyê!</p>
+                <p data-lang="ar" style="display:none;">واجهة برمجة تطبيقات الأخبار، لن تعمل واجهة برمجة التطبيقات على GITHUB بسبب سياسات الخصوصية!</p>
+                <a href="https://jalal-sarokhan.github.io/news/" target="_blank" rel="noopener noreferrer" data-lang="de">Mehr erfahren</a>
+                <a href="https://jalal-sarokhan.github.io/news/" target="_blank" rel="noopener noreferrer" data-lang="en" style="display:none;">Learn More</a>
+                <a href="https://jalal-sarokhan.github.io/news/" target="_blank" rel="noopener noreferrer" data-lang="ku" style="display:none;">Zêdetir Fêr Bibe</a>
+                <a href="https://jalal-sarokhan.github.io/news/" target="_blank" rel="noopener noreferrer" data-lang="ar" style="display:none;">أعرف أكثر</a>
             </div>
         </section>
         <section id="contact">
-            <h1>Kontakt</h1>
+            <h1 data-lang="de">Kontakt</h1>
+            <h1 data-lang="en" style="display:none;">Contact</h1>
+            <h1 data-lang="ku" style="display:none;">Têkilî</h1>
+            <h1 data-lang="ar" style="display:none;">تواصل</h1>
             <form id="contact-form" action="https://formspree.io/f/mzbnqznd" method="POST">
-                <label for="name">Name:</label>
+                <label for="name" data-lang="de">Name:</label>
+                <label for="name" data-lang="en" style="display:none;">Name:</label>
+                <label for="name" data-lang="ku" style="display:none;">Nav:</label>
+                <label for="name" data-lang="ar" style="display:none;">اسم:</label>
                 <input type="text" id="name" name="name" required>
-                <label for="email">E-Mail:</label>
+                <label for="email" data-lang="de">E-Mail:</label>
+                <label for="email" data-lang="en" style="display:none;">Email:</label>
+                <label for="email" data-lang="ku" style="display:none;">E-name:</label>
+                <label for="email" data-lang="ar" style="display:none;">البريد الإلكتروني:</label>
                 <input type="email" id="email" name="email" required>
-                <label for="message">Nachricht:</label>
+                <label for="message" data-lang="de">Nachricht:</label>
+                <label for="message" data-lang="en" style="display:none;">Message:</label>
+                <label for="message" data-lang="ku" style="display:none;">Peyama:</label>
+                <label for="message" data-lang="ar" style="display:none;">رسالة:</label>
                 <textarea id="message" name="message" required></textarea>
-                <button type="submit">Senden</button>
+                <button type="submit" data-lang="de">Senden</button>
+                <button type="submit" data-lang="en" style="display:none;">Send</button>
+                <button type="submit" data-lang="ku" style="display:none;">Şandin</button>
+                <button type="submit" data-lang="ar" style="display:none;">إرسال</button>
             </form>
         </section>
     </main>
@@ -148,6 +226,19 @@
                 }
             }).catch(error => {
                 alert('Es gab ein Problem beim Senden der Nachricht.');
+            });
+        });
+
+        document.getElementById('languageSelector').addEventListener('change', function() {
+            var selectedLang = this.value;
+            var elements = document.querySelectorAll('[data-lang]');
+            
+            elements.forEach(function(element) {
+                if (element.getAttribute('data-lang') === selectedLang) {
+                    element.style.display = 'block';
+                } else {
+                    element.style.display = 'none';
+                }
             });
         });
     </script>
