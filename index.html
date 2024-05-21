@@ -3,100 +3,148 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <title>Jalal Sarokhan - Portfolio</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('foto.png') no-repeat center center fixed;
+            background-size: cover;
+            color: white;
+        }
+        header nav ul {
+            list-style: none;
+            padding: 0;
+        }
+        header nav ul li {
+            display: inline;
+            margin-right: 15px;
+        }
+        header nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        section {
+            padding: 50px;
+            background: rgba(0, 0, 0, 0.7);
+            margin: 20px;
+            border-radius: 10px;
+        }
+        .profile-pic {
+            display: block;
+            margin: 0 auto 20px auto;
+            max-width: 200px;
+            border-radius: 50%;
+        }
+        form label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        form input, form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: none;
+            border-radius: 5px;
+        }
+        form button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #333;
+            color: white;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
     <header>
-        <h1>Jalal Sarokhan</h1>
         <nav>
             <ul>
                 <li><a href="#about">Über mich</a></li>
                 <li><a href="#experience">Erfahrung</a></li>
+                <li><a href="#projects">Projekte</a></li>
                 <li><a href="#contact">Kontakt</a></li>
             </ul>
         </nav>
     </header>
-    <section id="about">
-        <h2>Über mich</h2>
-        <div class="about-info">
-            <img src="foto.png" alt="Bild nicht gefunden!" >
-            <div class="personal-info">
-                <p>Name: Jalal Sarokhan</p>
-                <p>E-Mail: j.sarokhan@jis.de</p>
-                <p>Tel: 123456789</p>
-                <p>Adresse: Mannheim, Deutschland</p>
+    <main>
+        <section id="about">
+            <h1>Über mich</h1>
+            <img src="foto.png" alt="Bild von Jalal Sarokhan" class="profile-pic">
+            <p>Ich bin Jalal Sarokhan, ein Softwareentwickler mit Erfahrung in Java, JavaScript, C#, und teilweise auch Python.</p>
+            <p>Technologien wie Git, Docker, Kubernetes sowie automatisierte Test-Tools wie Jenkins sind mir ebenfalls vertraut.</p>
+        </section>
+        <section id="experience">
+            <h1>Erfahrung</h1>
+            <ul>
+                <li><strong>Firma XYZ</strong> - Softwareentwickler (Januar 2020 - Heute)</li>
+                <li><strong>Firma ABC</strong> - Junior Entwickler (März 2018 - Dezember 2019)</li>
+            </ul>
+        </section>
+        <section id="projects">
+            <h1>Projekte</h1>
+            <div class="project">
+                <h2>Projekt A</h2>
+                <p>Beschreibung des Projekts A...</p>
+                <a href="https://github.com/Jalal-Sarokhan/projekt-a">Mehr erfahren</a>
             </div>
-        </div>
-        <p>Hier etwas Info über mich</p>
-        <p>Softwareentwickler & App-entwickler & Desktop-App-Entwickler</p>
-        <p>Wirtschaftsinformatik an der Hochschule Ludwigshafen</p>
-        <p>Betriebswirtschaftslehe an Tishreen Universität</p>
-    </section>
-    
-    <section id="experience">
-        <h2>Erfahrung</h2>
-        <h3>MundZ-Webshop</h3>
-        <p>Das MundZ-Webshop ist eine webseite, die................</p>
-        <p>auf die wird ............................................</p>
-        <p>Die Webseite bietet Monitore, Zubehöre, die .............</p>
-        <p>Darüber hinaus verfügt das Webshop über die .............</p>
-        <h3>Android-app: FastCV</h3>
-        <p>Die FastCV ist eine app, die................</p>
-        <p>............................................</p>
-        <p>Die App ist für Mitarbeiter erstellt, die...</p>
-        <p>Darüber hinaus verfügt die App..............</p>
-    </section>
-    <section id="contact">
-        
-        <h2>Kontakt</h2>
-        <p>LinkedIn</p>
-        <p>Xing</p>
-        <p>X</p>
-        <p>Threads</p>
-        <p>Facebook</p>
-        <p>Instagram</p>
-        <p>Telegram</p>
-        <p>Whatsapp</p>
-        
-    </section>
+            <div class="project">
+                <h2>Projekt B</h2>
+                <p>Beschreibung des Projekts B...</p>
+                <a href="https://github.com/Jalal-Sarokhan/projekt-b">Mehr erfahren</a>
+            </div>
+        </section>
+        <section id="contact">
+            <h1>Kontakt</h1>
+            <form id="contact-form" action="https://formspree.io/f/mzbnqznd" method="POST">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                <label for="email">E-Mail:</label>
+                <input type="email" id="email" name="email" required>
+                <label for="message">Nachricht:</label>
+                <textarea id="message" name="message" required></textarea>
+                <button type="submit">Senden</button>
+            </form>
+        </section>
+    </main>
     <footer>
         <p>&copy; 2024 Jalal Sarokhan</p>
+        <p>Diese Seite dient lediglich als Testversion für eine Portfolio-Webseite und kann Fehler oder falsche Informationen enthalten.</p>
     </footer>
-</body>
-</html>
+    <script>
+        document.getElementById('contact-form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Verhindert das Standard-Formularverhalten
+            const form = event.target;
+            const formData = new FormData(form);
 
-<script>
-    // JavaScript-Code 
-    // Scrollen zu Abschnitten mit Smooth-Scrolling
-    const navLinks = document.querySelectorAll('nav ul li a');
-
-    navLinks.forEach(link => {
-        link.addEventListener('click', e => {
-            e.preventDefault();
-
-            const targetId = link.getAttribute('href').substring(1);
-            const targetElement = document.getElementById(targetId);
-
-            window.scrollTo({
-                top: targetElement.offsetTop - 50, // Offset für Header
-                behavior: 'smooth'
+            fetch(form.action, {
+                method: form.method,
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            }).then(response => {
+                if (response.ok) {
+                    alert('Nachricht erfolgreich gesendet!');
+                    form.reset();
+                } else {
+                    response.json().then(data => {
+                        if (Object.hasOwn(data, 'errors')) {
+                            alert(data["errors"].map(error => error["message"]).join(", "));
+                        } else {
+                            alert('Es gab ein Problem beim Senden der Nachricht.');
+                        }
+                    });
+                }
+            }).catch(error => {
+                alert('Es gab ein Problem beim Senden der Nachricht.');
             });
         });
-    });
-
-    // Hervorheben des aktuellen Abschnitts im Navigationsmenü beim Scrollen
-    window.addEventListener('scroll', () => {
-        const fromTop = window.scrollY + 50; // Offset für Header
-        const sections = document.querySelectorAll('section');
-
-        sections.forEach(section => {
-            if (fromTop >= section.offsetTop && fromTop < section.offsetTop + section.offsetHeight) {
-                const id = section.getAttribute('id');
-                const currentNavLink = document.querySelector(`nav ul li a[href="#${id}"]`);
-                navLinks.forEach(link => link.classList.remove('active'));
-                currentNavLink.classList.add('active');
-            }
-        });
-    });
-</script>
+    </script>
+</body>
+</html>
