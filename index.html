@@ -196,25 +196,46 @@
             </form>
         </section>
         <section id="new">
-            <!-- personallisierte WEBSEITE -->
             <h1 data-lang="de">Personalisierte Seite erstellen</h1>
             <h1 data-lang="en" style="display:none;">create personalized webpage</h1>
             <h1 data-lang="ku" style="display:none;">nzanem be cia</h1>
             <h1 data-lang="ar" style="display:none;">أنشاء صفحة شخصية</h1>
-            <form id="personalizationForm">
-            <label for="uname">Name:</label>
-            <input type="text" id="uname" name="uname" style="width: 10%; height: 10px;" placeholder="Name der Webseite" required><br><br>
 
-            <label for="picture">Bild hochladen:</label>
+            <form id="personalizationForm">
+            <label for="uname" data-lang="de">Name:</label>
+            <label for="uname" data-lang="en" style="display:none;">Name:</label>
+            <label for="uname" data-lang="ku" style="display:none;">Nav:</label>
+            <label for="uname" data-lang="ar" style="display:none;">الاسم:</label>
+            <input type="text" id="uname" name="uname" placeholder="Name der Webseite" required>
+
+            <label for="uWork" data-lang="de">Arbeit:</label>
+            <label for="uWork" data-lang="en" style="display:none;">Work:</label>
+            <label for="uWork" data-lang="ku" style="display:none;">Kar:</label>
+            <label for="uWork" data-lang="ar" style="display:none;">العمل:</label>
+            <input type="text" id="uWork" name="uWork" placeholder="Arbeit">
+
+            <label for="uExp" data-lang="de" >Erfahrung in Stichwort:</label>
+            <label for="uExp" data-lang="en" style="display:none;">Experience in Keywords:</label>
+            <label for="uExp" data-lang="ku" style="display:none;">Têcrubeyên bi peyvan:</label>
+            <label for="uExp" data-lang="ar" style="display:none;">الخبرة في كلمات مفتاحية:</label>
+            <input type="text" id="uExp" name="uExp" placeholder="z.B. Erfahrung mit E-Autos...">
+
+            <label for="picture" data-lang="de" >Bild hochladen:</label>
+            <label for="picture" data-lang="en" style="display:none;">Upload Picture:</label>
+            <label for="picture" data-lang="ku" style="display:none;">Wêne barkirin:</label>
+            <label for="picture" data-lang="ar" style="display:none;">تحميل الصورة:</label>
             <input type="file" id="picture" name="picture" accept="image/*" required><br><br>
 
-            <button type="submit">Erstellen</button>
+            <button type="submit" data-lang="de" >Erstellen</button>
+            <button type="submit" data-lang="en" style="display:none;">Create</button>
+            <button type="submit" data-lang="ku" style="display:none;">Afirandin</button>
+            <button type="submit" data-lang="ar" style="display:none;">إنشاء</button>
             </form>
 
-            <div id="personalizedPage" style="display:none;">
-                <h2>Willkommen, <span id="userName"></span>!</h2>
-                <img id="userPicture" src="" alt="User Picture">
-            </div>
+                <!--<div id="personalizedPage" style="display:none;">
+                    <h2>Willkommen, <span id="userName"></span>!</h2>
+                    <img id="userPicture" src="" alt="User Picture">
+                </div>-->
         </section>
     </main>
     <footer>

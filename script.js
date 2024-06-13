@@ -2,6 +2,8 @@ document.getElementById('personalizationForm').addEventListener('submit', functi
     event.preventDefault();
     
     const name = document.getElementById('uname').value;
+    const work = document.getElementById('uWork').value;
+    const exp = document.getElementById('uExp').value;
     const picture = document.getElementById('picture').files[0];
     
     const reader = new FileReader();
@@ -104,10 +106,10 @@ document.getElementById('personalizationForm').addEventListener('submit', functi
                     <h1 data-lang="ku" style="display:none;">Di derbarê min de</h1>
                     <h1 data-lang="ar" style="display:none;"> معلومات عنّي</h1>
                     <img src="${e.target.result}" alt="Bild von Jalal Sarokhan" class="profile-pic">
-                    <p data-lang="de">Ich bin ${name}, ein Softwareentwickler mit Erfahrung in Java, JavaScript, C#, und teilweise auch Python.</p>
-                    <p data-lang="en" style="display:none;">I am ${name}, a software developer with experience in Java, JavaScript, C#, and some Python.</p>
-                    <p data-lang="ku" style="display:none;">Ez ${name} im, pêşketina nivîsarê bi tecrûbeyek di Java, JavaScript, C#, û hinek Python de.</p>
-                    <p data-lang="ar" style="display:none;">أنا ${name} مطور برمجيات ذو خبرة في Java، JavaScript، C#، وبعض Python.</p>
+                    <p data-lang="de">Ich bin ${name}, ein ${work} mit Erfahrung in ${exp}.</p>
+                    <p data-lang="en" style="display:none;">I am ${name}, a software developer with experience in ${exp}.</p>
+                    <p data-lang="ku" style="display:none;">Ez ${name} im, pêşketina nivîsarê bi tecrûbeyek di ${exp}.</p>
+                    <p data-lang="ar" style="display:none;">أنا ${name} مطور برمجيات ذو خبرة في ${exp}.</p>
                     <p data-lang="de">Technologien wie Git, Docker, Kubernetes sowie automatisierte Test-Tools wie Jenkins sind mir ebenfalls vertraut.</p>
                     <p data-lang="en" style="display:none;">Technologies like Git, Docker, Kubernetes, and automated testing tools like Jenkins are also familiar to me.</p>
                     <p data-lang="ku" style="display:none;">Tehnolojiyên wek Git, Docker, Kubernetes, û amûrên testkirina otomatîk wek Jenkins jî min têne nas kirin.</p>
@@ -119,14 +121,14 @@ document.getElementById('personalizationForm').addEventListener('submit', functi
                     <h1 data-lang="ku" style="display:none;">Têcrûbeyê</h1>
                     <h1 data-lang="ar" style="display:none;">الخبرة</h1>
                     <ul>
-                        <li data-lang="de"><strong>Firma ${name}</strong> - Junior Entwickler (März 2022 - December 2022)</li>
-                        <li data-lang="en" style="display:none;"><strong>Company ${name}</strong> - Junior Developer (March 2022 - December 2022 )</li>
-                        <li data-lang="ku" style="display:none;"><strong>Şîrket ${name}</strong> - Pêşkeftina Nivîsarê ya Bêrî (Adar 2022 - Berfanbar 2022)</li>
-                        <li data-lang="ar" style="display:none;"><strong>شركة ${name}</strong> -  (مارس 2022 - ديسمبر 2022) مطور مبتدئ</li>
-                        <li data-lang="de"><strong>Firma ${name} GmbH</strong> - Softwareentwickler (Mai 2023 - Heute)</li>
-                        <li data-lang="en" style="display:none;"><strong>Company ${name} GmbH</strong> - Software Developer (March 2023 - Present)</li>
-                        <li data-lang="ku" style="display:none;"><strong>Şîrket ${name} GmbH</strong> - Pêşkeftina Nivîsar (Cozerdan 2023 - Niha)</li>
-                        <li data-lang="ar" style="display:none;"><strong>شركة ${name} GmbH</strong> - مطور برمجيات (مايو 2023 -  الآن)</li>
+                        <li data-lang="de"><strong>Firma ${name} se ${exp}</strong> - Junior Entwickler (März 2022 - December 2022)</li>
+                        <li data-lang="en" style="display:none;"><strong>Company ${name} se ${exp}</strong> - Junior Developer (March 2022 - December 2022 )</li>
+                        <li data-lang="ku" style="display:none;"><strong>Şîrket ${name} se ${exp}</strong> - Pêşkeftina Nivîsarê ya Bêrî (Adar 2022 - Berfanbar 2022)</li>
+                        <li data-lang="ar" style="display:none;"><strong>شركة ${name} se ${exp}</strong> -  (مارس 2022 - ديسمبر 2022) مطور مبتدئ</li>
+                        <li data-lang="de"><strong>Firma ${name} ${exp} GmbH</strong> - Softwareentwickler (Mai 2023 - Heute)</li>
+                        <li data-lang="en" style="display:none;"><strong>Company ${name} ${exp} GmbH</strong> - Software Developer (March 2023 - Present)</li>
+                        <li data-lang="ku" style="display:none;"><strong>Şîrket ${name} ${exp} GmbH</strong> - Pêşkeftina Nivîsar (Cozerdan 2023 - Niha)</li>
+                        <li data-lang="ar" style="display:none;"><strong>شركة ${name} ${exp} GmbH</strong> - مطور برمجيات (مايو 2023 -  الآن)</li>
                     </ul>
                 </section>
                 <section id="projects">
