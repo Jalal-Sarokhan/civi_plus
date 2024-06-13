@@ -194,6 +194,24 @@
                 <button type="submit" data-lang="ar" style="display:none;">إرسال</button>
             </form>
         </section>
+        <section id="new">
+            <!-- personallisierte WEBSEITE -->
+            <h1>Personalisierte Seite erstellen</h1>
+            <form id="personalizationForm">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" style="width: 10%; height: 10px;" placeholder="Name der Webseite" required><br><br>
+
+            <label for="picture">Bild hochladen:</label>
+            <input type="file" id="picture" name="picture" accept="image/*" required><br><br>
+
+            <button type="submit">Erstellen</button>
+            </form>
+
+            <div id="personalizedPage" style="display:none;">
+                <h2>Willkommen, <span id="userName"></span>!</h2>
+                <img id="userPicture" src="" alt="User Picture">
+            </div>
+        </section>
     </main>
     <footer>
         <p>&copy; 2024 Jalal Sarokhan</p>
@@ -242,5 +260,9 @@
             });
         });
     </script>
+    
+    <script src="script.js"></script>
+
+   
 </body>
 </html>
