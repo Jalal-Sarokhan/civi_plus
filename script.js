@@ -2,12 +2,48 @@ document.getElementById('personalizationForm').addEventListener('submit', functi
     event.preventDefault();
     
     const name = document.getElementById('uname').value;
-    const work = document.getElementById('uWork').value;
+    const uWork = document.getElementById('uWork').value;
     const exp = document.getElementById('uExp').value;
+
+    const uDeteils = document.getElementById('uDeteils').value;
+    const uFirma = Array.from(document.getElementsByName('uFirma[]')).map(input => input.value);
+    const uRole = Array.from(document.getElementsByName('uRole[]')).map(input => input.value);
+    const uFromMonth = Array.from(document.getElementsByName('uFromMonth[]')).map(input => input.value);
+    const uFromYear = Array.from(document.getElementsByName('uFromYear[]')).map(input => input.value);
+    const uToMonth = Array.from(document.getElementsByName('uToMonth[]')).map(input => input.value);
+    const uToYear = Array.from(document.getElementsByName('uToYear[]')).map(input => input.value);
+    const uProject = Array.from(document.getElementsByName('uProject[]')).map(input => input.value);
+    const uProjectDesc = Array.from(document.getElementsByName('uProjectDesc[]')).map(input => input.value);
     const picture = document.getElementById('picture').files[0];
-    
+
     const reader = new FileReader();
     reader.onload = function(e) {
+        let experienceList = '';
+    uFirma.forEach((firma, index) => {
+        experienceList += `
+            <li data-lang="de"><strong>${firma}</strong>  ${uRole[index]}  (${uFromMonth[index]} ${uFromYear[index]} - ${uToMonth[index]} ${uToYear[index]})</li>
+            <li data-lang="en" style="display:none;"><strong>${firma}</strong> ${uRole[index]} (${uFromMonth[index]} ${uFromYear[index]} - ${uToMonth[index]} ${uToYear[index]})</li>
+            <li data-lang="ku" style="display:none;"><strong>${firma}</strong> ${uRole[index]} (${uFromMonth[index]} ${uFromYear[index]} - ${uToMonth[index]} ${uToYear[index]})</li>
+            <li data-lang="ar" style="display:none;"><strong>${firma}</strong>  (مارس 2022 - ديسمبر 2022) ${uRole[index]} </li>
+        `;
+    });
+
+        let projectsList = '';
+        uProject.forEach((project, index) => {
+            projectsList += `
+                <div class="project">
+                    <h2 data-lang="de">Projekt ${project}</h2>
+                    <h2 data-lang="en" style="display:none;">Project ${project}</h2>
+                    <h2 data-lang="ku" style="display:none;">Projekta ${project}</h2>
+                    <h2 data-lang="ar" style="display:none;">مشروع ${project}</h2>
+                    <p data-lang="de">${uProjectDesc[index]}</p>
+                    <p data-lang="en" style="display:none;">${uProjectDesc[index]}</p>
+                    <p data-lang="ku" style="display:none;">${uProjectDesc[index]}</p>
+                    <p data-lang="ar" style="display:none;">${uProjectDesc[index]}</p>
+                </div>
+            `;
+        });
+
         const userPageContent = `
         <!DOCTYPE html>
         <html lang="de">
@@ -66,16 +102,15 @@ document.getElementById('personalizationForm').addEventListener('submit', functi
                     padding: 10px 20px;
                     border: none;
                     border-radius: 5px;
-                    background-color: #333;
+                    background-color: #5cb85c;
                     color: white;
                     cursor: pointer;
                 }
-                select {
-                    background-color: #333;
-                    color: white;
-                    border: none;
-                    border-radius: 5px;
-                    padding: 5px;
+                .project {
+                    margin-bottom: 20px;
+                }
+                .project h2 {
+                    margin-top: 0;
                 }
             </style>
         </head>
@@ -83,17 +118,28 @@ document.getElementById('personalizationForm').addEventListener('submit', functi
             <header>
                 <nav>
                     <ul>
-                        <li><a href="#about">Über mich</a></li>
-                        <li><a href="#experience">Erfahrung</a></li>
-                        <li><a href="#projects">Projekte</a></li>
-                        <li><a href="#contact">Kontakt</a></li>
-                        <li><a href="#new">info</a></li>
+                        <li><a href="#about" data-lang="de">Über Mich</a></li>
+                        <li><a href="#about" data-lang="en" style="display:none;">About</a></li>
+                        <li><a href="#about" data-lang="ku" style="display:none;">Di Derbarê Min De</a></li>
+                        <li><a href="#about" data-lang="ar" style="display:none;">معلومات عني</a></li>
+                        <li><a href="#experience" data-lang="de">Erfahrung</a></li>
+                        <li><a href="#experience" data-lang="en" style="display:none;">Experience</a></li>
+                        <li><a href="#experience" data-lang="ku" style="display:none;">Tecrûbe</a></li>
+                        <li><a href="#experience" data-lang="ar" style="display:none;">الخبرة</a></li>
+                        <li><a href="#projects" data-lang="de">Projekte</a></li>
+                        <li><a href="#projects" data-lang="en" style="display:none;">Projects</a></li>
+                        <li><a href="#projects" data-lang="ku" style="display:none;">Projekter</a></li>
+                        <li><a href="#projects" data-lang="ar" style="display:none;">المشاريع</a></li>
+                        <li><a href="#contact" data-lang="de">Kontakt</a></li>
+                        <li><a href="#contact" data-lang="en" style="display:none;">Contact</a></li>
+                        <li><a href="#contact" data-lang="ku" style="display:none;">Têkilî</a></li>
+                        <li><a href="#contact" data-lang="ar" style="display:none;">اتصل</a></li>
                         <li>
                             <select id="languageSelector">
-                                <option value="de">Deutsch</option>
-                                <option value="en">English</option>
-                                <option value="ku">Kurdish</option>
-                                <option value="ar">العربية</option>
+                                <option value="de">DE</option>
+                                <option value="en">EN</option>
+                                <option value="ku">KU</option>
+                                <option value="ar">AR</option>
                             </select>
                         </li>
                     </ul>
@@ -101,260 +147,146 @@ document.getElementById('personalizationForm').addEventListener('submit', functi
             </header>
             <main>
                 <section id="about">
+                    <img src="${e.target.result}" alt="Profile Picture" class="profile-pic">
                     <h1 data-lang="de">Über mich</h1>
                     <h1 data-lang="en" style="display:none;">About Me</h1>
                     <h1 data-lang="ku" style="display:none;">Di derbarê min de</h1>
                     <h1 data-lang="ar" style="display:none;"> معلومات عنّي</h1>
-                    <img src="${e.target.result}" alt="Bild von Jalal Sarokhan" class="profile-pic">
-                    <p data-lang="de">Ich bin ${name}, ein ${work} mit Erfahrung in ${exp}.</p>
-                    <p data-lang="en" style="display:none;">I am ${name}, a software developer with experience in ${exp}.</p>
-                    <p data-lang="ku" style="display:none;">Ez ${name} im, pêşketina nivîsarê bi tecrûbeyek di ${exp}.</p>
-                    <p data-lang="ar" style="display:none;">أنا ${name} مطور برمجيات ذو خبرة في ${exp}.</p>
-                    <p data-lang="de">Technologien wie Git, Docker, Kubernetes sowie automatisierte Test-Tools wie Jenkins sind mir ebenfalls vertraut.</p>
-                    <p data-lang="en" style="display:none;">Technologies like Git, Docker, Kubernetes, and automated testing tools like Jenkins are also familiar to me.</p>
-                    <p data-lang="ku" style="display:none;">Tehnolojiyên wek Git, Docker, Kubernetes, û amûrên testkirina otomatîk wek Jenkins jî min têne nas kirin.</p>
-                    <p data-lang="ar" style="display:none;">التقنيات مثل Git و Docker و Kubernetes وأدوات الاختبار التلقائي مثل Jenkins مألوفة أيضًا بالنسبة لي.</p>
+                    <p data-lang="de">Ich bin ${name}, ein ${uWork} mit Erfahrung in ${exp}.</p>
+                    <p data-lang="en" style="display:none;">I am ${name}, a ${uWork}  with experience in ${exp}.</p>
+                    <p data-lang="ku" style="display:none;">Ez ${name} im, ${uWork}  bi tecrûbeyek di ${exp}.</p>
+                    <p data-lang="ar" style="display:none;">أنا ${name} ${uWork}  ذو خبرة في ${exp}.</p>
+
+                    <p data-lang="de">${uDeteils}</p>
+                    <p data-lang="en" style="display:none;">${uDeteils}</p>
+                    <p data-lang="ku" style="display:none;">${uDeteils}</p>
+                    <p data-lang="ar" style="display:none;">${uDeteils}</p>
                 </section>
                 <section id="experience">
                     <h1 data-lang="de">Erfahrung</h1>
                     <h1 data-lang="en" style="display:none;">Experience</h1>
-                    <h1 data-lang="ku" style="display:none;">Têcrûbeyê</h1>
+                    <h1 data-lang="ku" style="display:none;">Tecrûbe</h1>
                     <h1 data-lang="ar" style="display:none;">الخبرة</h1>
                     <ul>
-                        <li data-lang="de"><strong>Firma ${name} se ${exp}</strong> - Junior Entwickler (März 2022 - December 2022)</li>
-                        <li data-lang="en" style="display:none;"><strong>Company ${name} se ${exp}</strong> - Junior Developer (March 2022 - December 2022 )</li>
-                        <li data-lang="ku" style="display:none;"><strong>Şîrket ${name} se ${exp}</strong> - Pêşkeftina Nivîsarê ya Bêrî (Adar 2022 - Berfanbar 2022)</li>
-                        <li data-lang="ar" style="display:none;"><strong>شركة ${name} se ${exp}</strong> -  (مارس 2022 - ديسمبر 2022) مطور مبتدئ</li>
-                        <li data-lang="de"><strong>Firma ${name} ${exp} GmbH</strong> - Softwareentwickler (Mai 2023 - Heute)</li>
-                        <li data-lang="en" style="display:none;"><strong>Company ${name} ${exp} GmbH</strong> - Software Developer (March 2023 - Present)</li>
-                        <li data-lang="ku" style="display:none;"><strong>Şîrket ${name} ${exp} GmbH</strong> - Pêşkeftina Nivîsar (Cozerdan 2023 - Niha)</li>
-                        <li data-lang="ar" style="display:none;"><strong>شركة ${name} ${exp} GmbH</strong> - مطور برمجيات (مايو 2023 -  الآن)</li>
+                        ${experienceList}
                     </ul>
                 </section>
                 <section id="projects">
                     <h1 data-lang="de">Projekte</h1>
                     <h1 data-lang="en" style="display:none;">Projects</h1>
-                    <h1 data-lang="ku" style="display:none;">Projekten</h1>
+                    <h1 data-lang="ku" style="display:none;">Projekter</h1>
                     <h1 data-lang="ar" style="display:none;">المشاريع</h1>
-                    <div class="project">
-                        <h2 data-lang="de">Projekt ${name}</h2>
-                        <h2 data-lang="en" style="display:none;">Project ${name}</h2>
-                        <h2 data-lang="ku" style="display:none;">Projekta ${name}</h2>
-                        <h2 data-lang="ar" style="display:none;">مشروع ${name}</h2>
-                        <p data-lang="de">Portfolio-Webseite</p>
-                        <p data-lang="en" style="display:none;">Portfolio Website</p>
-                        <p data-lang="ku" style="display:none;">Malpera Portfolio</p>
-                        <p data-lang="ar" style="display:none;">موقع المحفظة</p>
-                        <a href="https://jalal-sarokhan.github.io/civi/" target="_blank" rel="noopener noreferrer" data-lang="de">Mehr erfahren</a>
-                        <a href="https://jalal-sarokhan.github.io/civi/" target="_blank" rel="noopener noreferrer" data-lang="en" style="display:none;">Learn More</a>
-                        <a href="https://jalal-sarokhan.github.io/civi/" target="_blank" rel="noopener noreferrer" data-lang="ku" style="display:none;">Zêdetir Fêr Bibe</a>
-                        <a href="https://jalal-sarokhan.github.io/civi/" target="_blank" rel="noopener noreferrer" data-lang="ar" style="display:none;">أعرف أكثر</a>
-                    </div>
-                    <div class="project">
-                        <h2 data-lang="de">Angular Test</h2>
-                        <h2 data-lang="en" style="display:none;">Angular Test</h2>
-                        <h2 data-lang="ku" style="display:none;">Angular Test</h2>
-                        <h2 data-lang="ar" style="display:none;">اختبار Angular</h2>
-                        <p data-lang="de">Beschreibung der grundlegenden Eigenschaften von Angular</p>
-                        <p data-lang="en" style="display:none;">Description of the basic features of Angular</p>
-                        <p data-lang="ku" style="display:none;">Pêşandana taybetmendiyên bingehîn yên Angularê</p>
-                        <p data-lang="ar" style="display:none;">وصف الميزات الأساسية لـ Angular</p>
-                        <a href="https://jalal-sarokhan.github.io/J-S/" target="_blank" rel="noopener noreferrer" data-lang="de">Mehr erfahren</a>
-                        <a href="https://jalal-sarokhan.github.io/J-S/" target="_blank" rel="noopener noreferrer" data-lang="en" style="display:none;">Learn More</a>
-                        <a href="https://jalal-sarokhan.github.io/J-S/" target="_blank" rel="noopener noreferrer" data-lang="ku" style="display:none;">Zêdetir Fêr Bibe</a>
-                        <a href="https://jalal-sarokhan.github.io/J-S/" target="_blank" rel="noopener noreferrer" data-lang="ar" style="display:none;">أعرف أكثر</a>
-                    </div>
-                    <div class="project">
-                        <h2 data-lang="de">News</h2>
-                        <h2 data-lang="en" style="display:none;">News</h2>
-                        <h2 data-lang="ku" style="display:none;">Nûçe</h2>
-                        <h2 data-lang="ar" style="display:none;">الأخبار</h2>
-                        <p data-lang="de">Nachrichten API, wobei die API wird in GITHUB aus Datenschutz-richtlinien nicht funktionieren!</p>
-                        <p data-lang="en" style="display:none;">News API, the API will not work on GITHUB due to privacy policies!</p>
-                        <p data-lang="ku" style="display:none;">API-ya Nûçeyan, API li GITHUB-an nayê xebitandin ji bo politikayên taybetmendiyê!</p>
-                        <p data-lang="ar" style="display:none;">واجهة برمجة تطبيقات الأخبار، لن تعمل واجهة برمجة التطبيقات على GITHUB بسبب سياسات الخصوصية!</p>
-                        <a href="https://jalal-sarokhan.github.io/news/" target="_blank" rel="noopener noreferrer" data-lang="de">Mehr erfahren</a>
-                        <a href="https://jalal-sarokhan.github.io/news/" target="_blank" rel="noopener noreferrer" data-lang="en" style="display:none;">Learn More</a>
-                        <a href="https://jalal-sarokhan.github.io/news/" target="_blank" rel="noopener noreferrer" data-lang="ku" style="display:none;">Zêdetir Fêr Bibe</a>
-                        <a href="https://jalal-sarokhan.github.io/news/" target="_blank" rel="noopener noreferrer" data-lang="ar" style="display:none;">أعرف أكثر</a>
-                    </div>
+                    ${projectsList}
                 </section>
                 <section id="contact">
                     <h1 data-lang="de">Kontakt</h1>
                     <h1 data-lang="en" style="display:none;">Contact</h1>
                     <h1 data-lang="ku" style="display:none;">Têkilî</h1>
-                    <h1 data-lang="ar" style="display:none;">تواصل</h1>
-                    <form id="contact-form" action="https://formspree.io/f/mzbnqznd" method="POST">
-                        <label for="name" data-lang="de">Name:</label>
-                        <label for="name" data-lang="en" style="display:none;">Name:</label>
-                        <label for="name" data-lang="ku" style="display:none;">Nav:</label>
-                        <label for="name" data-lang="ar" style="display:none;">اسم:</label>
-                        <input type="text" id="name" name="name" required>
-                        <label for="email" data-lang="de">E-Mail:</label>
-                        <label for="email" data-lang="en" style="display:none;">Email:</label>
-                        <label for="email" data-lang="ku" style="display:none;">E-name:</label>
-                        <label for="email" data-lang="ar" style="display:none;">البريد الإلكتروني:</label>
-                        <input type="email" id="email" name="email" required>
-                        <label for="message" data-lang="de">Nachricht:</label>
-                        <label for="message" data-lang="en" style="display:none;">Message:</label>
-                        <label for="message" data-lang="ku" style="display:none;">Peyama:</label>
-                        <label for="message" data-lang="ar" style="display:none;">رسالة:</label>
-                        <textarea id="message" name="message" required></textarea>
-                        <button type="submit" data-lang="de">Senden</button>
-                        <button type="submit" data-lang="en" style="display:none;">Send</button>
-                        <button type="submit" data-lang="ku" style="display:none;">Şandin</button>
-                        <button type="submit" data-lang="ar" style="display:none;">إرسال</button>
-                    </form>
+                    <h1 data-lang="ar" style="display:none;">اتصل</h1>
+                    <p data-lang="de">Email: beispiel@example.com</p>
+                    <p data-lang="en" style="display:none;">Email: example@example.com</p>
+                    <p data-lang="ku" style="display:none;">Email: nimûne@nimûne.com</p>
+                    <p data-lang="ar" style="display:none;">Email: مثال@مثال.com</p>
+                </section>
             </main>
-            <footer>
-                <p>&copy; 2024 Jalal Sarokhan</p>
-                <p>Diese Seite dient lediglich als Testversion für eine Portfolio-Webseite und kann Fehler oder falsche Informationen enthalten.</p>
-            </footer>
             <script>
-                document.getElementById('contact-form').addEventListener('submit', function(event) {
-                    event.preventDefault(); // Verhindert das Standard-Formularverhalten
-                    const form = event.target;
-                    const formData = new FormData(form);
-        
-                    fetch(form.action, {
-                        method: form.method,
-                        body: formData,
-                        headers: {
-                            'Accept': 'application/json'
-                        }
-                    }).then(response => {
-                        if (response.ok) {
-                            alert('Nachricht erfolgreich gesendet!');
-                            form.reset();
-                        } else {
-                            response.json().then(data => {
-                                if (Object.hasOwn(data, 'errors')) {
-                                    alert(data["errors"].map(error => error["message"]).join(", "));
-                                } else {
-                                    alert('Es gab ein Problem beim Senden der Nachricht.');
-                                }
-                            });
-                        }
-                    }).catch(error => {
-                        alert('Es gab ein Problem beim Senden der Nachricht.');
-                    });
-                });
-        
                 document.getElementById('languageSelector').addEventListener('change', function() {
-                    var selectedLang = this.value;
-                    var elements = document.querySelectorAll('[data-lang]');
-                    
-                    elements.forEach(function(element) {
-                        if (element.getAttribute('data-lang') === selectedLang) {
-                            element.style.display = 'block';
-                        } else {
-                            element.style.display = 'none';
-                        }
+                    const selectedLanguage = this.value;
+                    const elements = document.querySelectorAll('[data-lang]');
+                    elements.forEach(element => {
+                        element.style.display = element.getAttribute('data-lang') === selectedLanguage ? '' : 'none';
                     });
                 });
             </script>
-            
-            <script src="script.js"></script>
-        
-           
         </body>
         </html>
         `;
-        const userPageCss = `
-        footer {
-            height: 65px;
-        }
-        header {
-            height: 40px; 
-        }
-        
-        
-        body {
-            padding-top: 110px; /* Headerhöhe + 10px */
-            padding-bottom: 60px; /* Footerhöhe + 10px */
-            margin: 0;
-        }
-        
-        /* Stellt sicher, dass der Inhalt des Body mindestens 10px von oben und unten positioniert ist */
-        body::before,
-        body::after {
-            content: "";
-            display: block;
-            height: 10px;
-            width: 100%;
-        }
-        
-        /* Es setzet Inhalt von ::before oben und ::after unten */
-        body::before {
-            margin-top: -10px;
-        }
-        
-        body::after {
-            margin-bottom: -10px;
-        }
-        
-        
-        header {
-        
-            background-color: #333;
-            color: #fff;
-            text-align: center;
-            padding: 10px;
-            position: fixed;
-            top:0;
-            width: 100%;
-        
-        }
-        
-        nav ul {
-            list-style-type: none;
-            padding: 0;
-        }
-        
-        nav ul li {
-            display: inline;
-            margin-right: 20px;
-        }
-        
-        nav ul li a {
-            color: #fff;
-            text-decoration: none;
-        }
-        
-        section {
-            padding: 20px;
-        }
-        
-        footer {
-            background-color: #333;
-            color: #fff;
-            text-align: center;
-            padding: 10px;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-        }
-        nav ul li a.active {
-            color: #ff9900; /* Farbe des aktiven Links */
-            font-weight: bold; /* Schriftstil des aktiven Links */
-        }
-        
-        .about-info {
-            display: flex; /* Nutzt Flexbox für das Layout */
-        }
-        
-        .personal-info {
-            margin-left: 20px; /* Fügt Abstand zwischen Bild und Informationen hinzu */
-        }
-        img {
-            height: 140px; 
-            width: 140px;
-        }`;
-        
-        downloadHTML(userPageContent, `${name}_personalized_page.html`);
-        downloadCSS(userPageCss,`styles.css`);
-    }
+
+        const blob = new Blob([userPageContent], { type: 'text/html' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `${name}-portfolio.html`;
+        a.click();
+    };
     reader.readAsDataURL(picture);
+});
+
+document.getElementById('addCompany').addEventListener('click', function() {
+    const companyFields = document.getElementById('companyFields');
+    const newCompanyField = document.createElement('div');
+    newCompanyField.classList.add('companyField');
+
+    newCompanyField.innerHTML = `
+        <label for="uFirma">
+            <span data-lang="de">Firma oder Institut:</span>
+            <span data-lang="en" style="display:none;">Company or Institute:</span>
+            <span data-lang="ku" style="display:none;">Şîrket an Enstîtu:</span>
+            <span data-lang="ar" style="display:none;">شركة أو معهد:</span>
+        </label>
+        <input type="text" name="uFirma[]" placeholder="z.B. BASF, Amazon, SAP, Lidl...">
+
+        <label for="uRole">
+            <span data-lang="de">Beruf:</span>
+            <span data-lang="en" style="display:none;">Role:</span>
+            <span data-lang="ku" style="display:none;">Kar:</span>
+            <span data-lang="ar" style="display:none;">دور:</span>
+        </label>
+        <input type="text" name="uRole[]" placeholder="z.B. Softwareentwickler">
+
+        <label for="uFromMonth">
+            <span data-lang="de">Vom Monat:</span>
+            <span data-lang="en" style="display:none;">From Month:</span>
+            <span data-lang="ku" style="display:none;">Ji Meha:</span>
+            <span data-lang="ar" style="display:none;">من شهر:</span>
+        </label>
+        <input type="text" name="uFromMonth[]" placeholder="z.B. März">
+
+        <label for="uFromYear">
+            <span data-lang="de">Vom Jahr:</span>
+            <span data-lang="en" style="display:none;">From Year:</span>
+            <span data-lang="ku" style="display:none;">Ji Sala:</span>
+            <span data-lang="ar" style="display:none;">من سنة:</span>
+        </label>
+        <input type="text" name="uFromYear[]" placeholder="z.B. 2022">
+
+        <label for="uToMonth">
+            <span data-lang="de">Bis Monat:</span>
+            <span data-lang="en" style="display:none;">To Month:</span>
+            <span data-lang="ku" style="display:none;">Heta Meh:</span>
+            <span data-lang="ar" style="display:none;">إلى شهر:</span>
+        </label>
+        <input type="text" name="uToMonth[]" placeholder="z.B. Dezember">
+
+        <label for="uToYear">
+            <span data-lang="de">Bis Jahr:</span>
+            <span data-lang="en" style="display:none;">To Year:</span>
+            <span data-lang="ku" style="display:none;">Heta Sal:</span>
+            <span data-lang="ar" style="display:none;">إلى سنة:</span>
+        </label>
+        <input type="text" name="uToYear[]" placeholder="z.B. 2022">
+    `;
+    companyFields.appendChild(newCompanyField);
+});
+
+document.getElementById('addProject').addEventListener('click', function() {
+    const projectFields = document.getElementById('projectFields');
+    const newProjectField = document.createElement('div');
+    newProjectField.classList.add('project-entry');
+
+    newProjectField.innerHTML = `
+        <label for="uProject" data-lang="de">Projektname:</label>
+        <label for="uProject" data-lang="en" style="display:none;">Project Name:</label>
+        <label for="uProject" data-lang="ku" style="display:none;">Navê Projeyê:</label>
+        <label for="uProject" data-lang="ar" style="display:none;">اسم المشروع:</label>
+        <input type="text" name="uProject[]" placeholder="z.B. Webshop, Mobile App...">
+        <label for="uProjectDesc" data-lang="de">Projektbeschreibung:</label>
+        <label for="uProjectDesc" data-lang="en" style="display:none;">Project Description:</label>
+        <label for="uProjectDesc" data-lang="ku" style="display:none;">Terîfa Projeyê:</label>
+        <label for="uProjectDesc" data-lang="ar" style="display:none;">وصف المشروع:</label>
+        <textarea name="uProjectDesc[]" placeholder="Beschreiben Sie das Projekt..."></textarea>
+    `;
+    projectFields.appendChild(newProjectField);
 });
 
 function downloadHTML(content, filename) {
@@ -368,6 +300,7 @@ function downloadHTML(content, filename) {
     document.body.removeChild(a);
     URL.revokeObjectURL(url);
 }
+
 function downloadCSS(content, filename) {
     const blob = new Blob([content], { type: 'text/css' });
     const url = URL.createObjectURL(blob);
