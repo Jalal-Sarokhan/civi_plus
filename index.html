@@ -84,26 +84,78 @@
         }.companyField {
             margin-top: 20px;
         }
+        .project-group {
+            display: flex;
+            justify-content: space-between;
+        }
+        .project-item {
+            flex: 1;
+            margin-right: 10px;
+            padding-right: 5%;
+        }
+        .project-item:last-child {
+            margin-right: 0;
+        }.projectFields {
+            margin-top: 20px;
+        }
+         /* Reset für die Liste */
+         ul#navigation {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex; 
+        }
+
+        ul#navigation li {
+            margin-right: 15px; /* Abstand zwischen den Elementen */
+        }
+
+        ul#navigation li:last-child {
+            margin-right: 0; /* Kein Abstand am Ende */
+        }
+        header {
+            display: flex;
+            justify-content: center;
+        }
     </style>
 </head>
 <body>
     <header>
         <nav>
-            <ul>
-                <li><a href="#about">Über mich</a></li>
-                <li><a href="#experience">Erfahrung</a></li>
-                <li><a href="#projects">Projekte</a></li>
-                <li><a href="#contact">Kontakt</a></li>
-                <li><a href="#new">Service</a></li>
-                <li>
-                    <select title="Language" id="languageSelector">
-                        <option value="de">Deutsch</option>
-                        <option value="en">English</option>
-                        <option value="ku">Kurdish</option>
-                        <option value="ar">العربية</option>
-                    </select>
-                </li>
-            </ul>
+            <ul id="navigation" >
+            <li data-lang="de"><a href="#about">Über mich</a></li>
+            <li data-lang="en" style="display:none;"><a href="#about">About</a></li>
+            <li data-lang="ku" style="display:none;"><a href="#about">Di derbarê min de</a></li>
+            <li data-lang="ar" style="display:none;"><a href="#about">معلومات عنّي</a></li>
+
+            <li data-lang="de"><a href="#experience">Erfahrung</a></li>
+            <li data-lang="en" style="display:none;"><a href="#experience">Experience</a></li>
+            <li data-lang="ku" style="display:none;"><a href="#experience">Tecrûbe</a></li>
+            <li data-lang="ar" style="display:none;"><a href="#experience">الخبرة</a></li>
+
+            <li data-lang="de"><a href="#projects">Projekte</a></li>
+            <li data-lang="en" style="display:none;"><a href="#projects">Projects</a></li>
+            <li data-lang="ku" style="display:none;"><a href="#projects">Projekter</a></li>
+            <li data-lang="ar" style="display:none;"><a href="#projects">المشاريع</a></li>
+
+            <li data-lang="de"><a href="#contact">Kontakt</a></li>
+            <li data-lang="en" style="display:none;"><a href="#contact">Contact</a></li>
+            <li data-lang="ku" style="display:none;"><a href="#contact">Têkilî</a></li>
+            <li data-lang="ar" style="display:none;"><a href="#contact">اتصل</a></li>
+
+            <li data-lang="de"><a href="#new">Service</a></li>
+            <li data-lang="en" style="display:none;"><a href="#new">Service</a></li>
+            <li data-lang="ku" style="display:none;"><a href="#new">Xizmetkar</a></li>
+            <li data-lang="ar" style="display:none;"><a href="#new">خدمة</a></li>
+            <li>
+                <select title="Language" id="languageSelector">
+                    <option value="de">Deutsch</option>
+                    <option value="en">English</option>
+                    <option value="ku">Kurdish</option>
+                    <option value="ar">العربية</option>
+                </select>
+            </li>        
+        </ul>
         </nav>
     </header>
     <main>
@@ -128,14 +180,14 @@
             <h1 data-lang="ku" style="display:none;">Têcrûbeyê</h1>
             <h1 data-lang="ar" style="display:none;">الخبرة</h1>
             <ul>
-                <li data-lang="de"><strong>Firma ENBW</strong> - Junior Entwickler (März 2022 - December 2022)</li>
-                <li data-lang="en" style="display:none;"><strong>Company ENBW</strong> - Junior Developer (March 2022 - December 2022 )</li>
-                <li data-lang="ku" style="display:none;"><strong>Şîrket ENBW</strong> - Pêşkeftina Nivîsarê ya Bêrî (Adar 2022 - Berfanbar 2022)</li>
-                <li data-lang="ar" style="display:none;"><strong>شركة ENBW</strong> -  (مارس 2022 - ديسمبر 2022) مطور مبتدئ</li>
-                <li data-lang="de"><strong>Firma PTA GmbH</strong> - Softwareentwickler (Mai 2023 - Heute)</li>
-                <li data-lang="en" style="display:none;"><strong>Company PTA GmbH</strong> - Software Developer (March 2023 - Present)</li>
-                <li data-lang="ku" style="display:none;"><strong>Şîrket PTA GmbH</strong> - Pêşkeftina Nivîsar (Cozerdan 2023 - Niha)</li>
-                <li data-lang="ar" style="display:none;"><strong>شركة PTA GmbH</strong> - مطور برمجيات (مايو 2023 -  الآن)</li>
+                <li data-lang="de"><strong>Firma Example</strong> - Junior Entwickler (März 2022 - December 2022)</li>
+                <li data-lang="en" style="display:none;"><strong>Company Example</strong> - Junior Developer (March 2022 - December 2022 )</li>
+                <li data-lang="ku" style="display:none;"><strong>Şîrket Example</strong> - Pêşkeftina Nivîsarê ya Bêrî (Adar 2022 - Berfanbar 2022)</li>
+                <li data-lang="ar" style="display:none;"><strong>شركة Example</strong> -  (مارس 2022 - ديسمبر 2022) مطور مبتدئ</li>
+                <li data-lang="de"><strong>Firma Example GmbH</strong> - Softwareentwickler (Mai 2023 - Heute)</li>
+                <li data-lang="en" style="display:none;"><strong>Company Example GmbH</strong> - Software Developer (March 2023 - Present)</li>
+                <li data-lang="ku" style="display:none;"><strong>Şîrket Example GmbH</strong> - Pêşkeftina Nivîsar (Cozerdan 2023 - Niha)</li>
+                <li data-lang="ar" style="display:none;"><strong>شركة Example GmbH</strong> - مطور برمجيات (مايو 2023 -  الآن)</li>
             </ul>
         </section>
         <section id="projects">
@@ -309,19 +361,33 @@
             <h1 data-lang="ar" style="display:none;">المشاريع</h1>
             <div id="projectFields">
                 <div class="project-entry">
-                    <label for="uProject" data-lang="de">Projektname:</label>
-                    <label for="uProject" data-lang="en" style="display:none;">Project Name:</label>
-                    <label for="uProject" data-lang="ku" style="display:none;">Navê Projeyê:</label>
-                    <label for="uProject" data-lang="ar" style="display:none;">اسم المشروع:</label>
-                    <input type="text" id="uProject" name="uProject[]" placeholder="z.B. Webshop, Mobile App..." style="align-items: center ;width: 20%;">
-                    <label for="uProjectDesc" data-lang="de">Projektbeschreibung:</label>
-                    <label for="uProjectDesc" data-lang="en" style="display:none;">Project Description:</label>
-                    <label for="uProjectDesc" data-lang="ku" style="display:none;">Terîfa Projeyê:</label>
-                    <label for="uProjectDesc" data-lang="ar" style="display:none;">وصف المشروع:</label>
-                    <textarea id="uProjectDesc" name="uProjectDesc[]" placeholder="Beschreiben Sie das Projekt..."></textarea>
+                    <div class="project-group">
+                        <div class="project-item">
+                            <label for="uProject" data-lang="de">Projektname:</label>
+                            <label for="uProject" data-lang="en" style="display:none;">Project Name:</label>
+                            <label for="uProject" data-lang="ku" style="display:none;">Navê Projeyê:</label>
+                            <label for="uProject" data-lang="ar" style="display:none;">اسم المشروع:</label>
+                            <input type="text" id="uProject" name="uProject[]" placeholder="z.B. Webshop, Mobile App..." >
+                            
+                        </div>
+                        <div class="project-item">
+                            <label for="uLink" data-lang="de">Projektlink:</label>
+                            <label for="uLink" data-lang="en" style="display:none;">Project link:</label>
+                            <label for="uLink" data-lang="ku" style="display:none;">link a Projeyê:</label>
+                            <label for="uLink" data-lang="ar" style="display:none;">رابط المشروع:</label>
+                            <input type="text" id="uLink" name="uLink[]" placeholder="z.B. https://www.onedrive.com/5425/me" >
+                        </div>
+                        <div class="project-item">
+                            <label for="uProjectDesc" data-lang="de">Projektbeschreibung:</label>
+                            <label for="uProjectDesc" data-lang="en" style="display:none;">Project Description:</label>
+                            <label for="uProjectDesc" data-lang="ku" style="display:none;">Terîfa Projeyê:</label>
+                            <label for="uProjectDesc" data-lang="ar" style="display:none;">وصف المشروع:</label>
+                            <textarea id="uProjectDesc" name="uProjectDesc[]" placeholder="Beschreiben Sie das Projekt..."></textarea>
+                        </div>
+                    </div>
                 </div>
             </div> 
-            <button type="button" id="addProject">Projekt hinzufügen</button><br><br>
+            <button type="button" id="addProject">Weiteres Projekt hinzufügen</button><br><br>
             <label for="picture" data-lang="de" >Bild hochladen:</label>
             <label for="picture" data-lang="en" style="display:none;">Upload Picture:</label>
             <label for="picture" data-lang="ku" style="display:none;">Wêne barkirin:</label>
