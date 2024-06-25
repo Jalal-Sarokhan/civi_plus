@@ -274,10 +274,10 @@
             <form id="personalizationForm">
                 <div class="input-group">
                     <div class="input-item">
-                        <label for="uname" data-lang="de">Name:</label>
-                        <label for="uname" data-lang="en" style="display:none;">Name:</label>
-                        <label for="uname" data-lang="ku" style="display:none;">Nav:</label>
-                        <label for="uname" data-lang="ar" style="display:none;">الاسم:</label>
+                        <label for="uname" data-lang="de">Name der Webseite:</label>
+                        <label for="uname" data-lang="en" style="display:none;">Name of your Website:</label>
+                        <label for="uname" data-lang="ku" style="display:none;">Navê malpera we:</label>
+                        <label for="uname" data-lang="ar" style="display:none;">اسم موقع الويب الخاص بك:</label>
                         <input type="text" id="uname" name="uname" placeholder="Name der Webseite" required>
                     </div>
                     <div class="input-item">
@@ -297,9 +297,9 @@
                 </div>
         
                 <label for="uDeteils" data-lang="de">Details zur Arbeit:</label>
-                <label for="uDeteils" data-lang="en" style="display:none;">Work:</label>
-                <label for="uDeteils" data-lang="ku" style="display:none;">Kar:</label>
-                <label for="uDeteils" data-lang="ar" style="display:none;">العمل:</label>
+                <label for="uDeteils" data-lang="en" style="display:none;">Work details:</label>
+                <label for="uDeteils" data-lang="ku" style="display:none;">Agahiyên xebatê:</label>
+                <label for="uDeteils" data-lang="ar" style="display:none;">تفاصيل العمل:</label>
                 <input type="text" id="uDeteils" name="uDeteils" placeholder="Technologien wie Git, Docker, Kubernetes sowie automatisierte Test-Tools wie Jenkins sind mir ebenfalls vertraut.">
             
             <h1 data-lang="de">Erfahrung</h1>
@@ -335,7 +335,10 @@
                                 <span data-lang="ku" style="display:none;">Ji:</span>
                                 <span data-lang="ar" style="display:none;">من :</span>
                             </label>
-                            <input type="date" placeholder="01.01.2001" name="uFromYear[]" max="" id="fromYear" onchange="checkDate('fromYear', 'fromMonth')">
+                            <input type="text" 
+                            placeholder="DD.MM.YYYY"
+                            onfocus="(this.type='date')"
+                            onblur="(this.type='text')" name="uFromYear[]" max="" id="fromYear" onchange="checkDate('fromYear', 'fromMonth')">
                         </div>
                         <div class="input-item">
                             <label for="uToYear">
@@ -344,7 +347,10 @@
                                 <span data-lang="ku" style="display:none;">Heta :</span>
                                 <span data-lang="ar" style="display:none;">إلى:</span>
                             </label>
-                            <input type="date" name="uToYear[]" placeholder="01.01.2001" max="" id="toYear" onchange="checkDate('toYear', 'toMonth')">
+                            <input type="text" 
+                            placeholder="DD.MM.YYYY"
+                            onfocus="(this.type='date')"
+                            onblur="(this.type='text')" max="" name="uToYear[]"  id="toYear" onchange="checkDate('toYear', 'toMonth')">
                         </div>
                     </div>
                 </div>
@@ -373,7 +379,7 @@
                         <div class="project-item">
                             <label for="uLink" data-lang="de">Projektlink:</label>
                             <label for="uLink" data-lang="en" style="display:none;">Project link:</label>
-                            <label for="uLink" data-lang="ku" style="display:none;">link a Projeyê:</label>
+                            <label for="uLink" data-lang="ku" style="display:none;">linka Projeyê:</label>
                             <label for="uLink" data-lang="ar" style="display:none;">رابط المشروع:</label>
                             <input type="text" id="uLink" name="uLink[]" placeholder="z.B. https://www.onedrive.com/5425/me" >
                         </div>
