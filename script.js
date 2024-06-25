@@ -20,6 +20,9 @@ document.getElementById('personalizationForm').addEventListener('submit', functi
     const uLink = Array.from(document.getElementsByName('uLink[]')).map(input => input.value);
     const uProjectDesc = Array.from(document.getElementsByName('uProjectDesc[]')).map(input => input.value);
     const picture = document.getElementById('picture').files[0];
+    const uWhatsapp = document.getElementById('uWhatsapp').value;
+    const uYourEMail = document.getElementById('uYourEMail').value;
+    const uInstaLink = document.getElementById('uInstaLink').value;
 
     const reader = new FileReader();
     reader.onload = function(e) {
@@ -148,7 +151,18 @@ document.getElementById('personalizationForm').addEventListener('submit', functi
                 .custom-link:hover {
                     text-decoration: underline; 
                 }
-                
+                .contact-group {
+                    display: flex;
+                    justify-content: space-between;
+                }
+                .contact-item {
+                    flex: 1;
+                    margin-right: 10px;
+                    padding-right: 5%;
+                }
+                .contact-item:last-child {
+                    margin-right: 0;
+                }
             </style>
         </head>
         <body>
@@ -216,14 +230,31 @@ document.getElementById('personalizationForm').addEventListener('submit', functi
                     ${projectsList}
                 </section>
                 <section id="contact">
-                    <h1 data-lang="de">Kontakt</h1>
-                    <h1 data-lang="en" style="display:none;">Contact</h1>
-                    <h1 data-lang="ku" style="display:none;">Têkilî</h1>
-                    <h1 data-lang="ar" style="display:none;">اتصل</h1>
-                    <p data-lang="de">Email: beispiel@example.com</p>
-                    <p data-lang="en" style="display:none;">Email: example@example.com</p>
-                    <p data-lang="ku" style="display:none;">Email: nimûne@nimûne.com</p>
-                    <p data-lang="ar" style="display:none;">Email: مثال@مثال.com</p>
+                <h1 style="text-align: center;" data-lang="de">Kontakt</h1>
+                <h1 data-lang="en" style="display:none;text-align: center;">Contact</h1>
+                <h1 data-lang="ku" style="display:none;text-align: center;">Têkilî</h1>
+                <h1 data-lang="ar" style="display:none;text-align: center;">اتصل</h1>
+                <div class="contact-group">
+                    <div class="contact-item">
+                    <h1 data-lang="de"><a href="mailto:${uYourEMail}">E-Mail: ${uYourEMail}</a></h1>
+                    <h1 data-lang="en" style="display:none;"><a href="mailto:${uYourEMail}">Email: ${uYourEMail}</a></h1> 
+                    <h1 data-lang="ku" style="display:none;"><a href="mailto:${uYourEMail}">Email: ${uYourEMail} </a></h1>
+                    <h1 data-lang="ar" style="display:none;"><a href="mailto:${uYourEMail}">البريد الالكتروني: ${uYourEMail} </a></h1>
+                    </div>
+                    <div class="contact-item">
+                    <h1><a href="https://wa.me/${uWhatsapp}">Whatsapp</a><h1>
+                    </div>
+                    <div class="contact-item">
+                    <h1><a href="${uInstaLink}">Instagram</a><h1>
+                    </div>
+                    <div class="contact-item">
+                    <h1 data-lang="de" style="text-align: center;"> <a href="https://jalal-sarokhan.github.io/civi_plus/#new" target="_blank"> Personalisierte Seite erstellen </a></h1>
+                    <h1 data-lang="en" style="display:none;"> <a href="https://jalal-sarokhan.github.io/civi_plus/#new" target="_blank"> create personalized webpage </a></h1>
+                    <h1 data-lang="ku" style="display:none;"> <a href="https://jalal-sarokhan.github.io/civi_plus/#new" target="_blank"> nzanem be cia </a></h1>
+                    <h1 data-lang="ar" style="display:none;"> <a href="https://jalal-sarokhan.github.io/civi_plus/#new" target="_blank"> أنشاء صفحة شخصية</a></h1>
+                    </div>
+                </div>
+                </section>
             </main>
             <script>
                 document.getElementById('languageSelector').addEventListener('change', function() {

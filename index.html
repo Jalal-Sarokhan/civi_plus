@@ -98,6 +98,18 @@
         }.projectFields {
             margin-top: 20px;
         }
+        .picture-group {
+            display: flex;
+            justify-content: space-between;
+        }
+        .picture-item {
+            flex: 1;
+            margin-right: 10px;
+            padding-right: 5%;
+        }
+        .picture-item:last-child {
+            margin-right: 0;
+        }
          /* Reset für die Liste */
          ul#navigation {
             list-style: none;
@@ -267,9 +279,9 @@
         </section>
         <section id="new">
             <h1 data-lang="de" style="text-align: center;">Personalisierte Seite erstellen</h1>
-            <h1 data-lang="en" style="display:none;">create personalized webpage</h1>
-            <h1 data-lang="ku" style="display:none;">nzanem be cia</h1>
-            <h1 data-lang="ar" style="display:none;">أنشاء صفحة شخصية</h1>
+            <h1 data-lang="en" style="display:none;text-align: center;">create personalized webpage</h1>
+            <h1 data-lang="ku" style="display:none;text-align: center;">nzanem be cia</h1>
+            <h1 data-lang="ar" style="display:none;text-align: center;">أنشاء صفحة شخصية</h1>
         
             <form id="personalizationForm">
                 <div class="input-group">
@@ -374,7 +386,6 @@
                             <label for="uProject" data-lang="ku" style="display:none;">Navê Projeyê:</label>
                             <label for="uProject" data-lang="ar" style="display:none;">اسم المشروع:</label>
                             <input type="text" id="uProject" name="uProject[]" placeholder="z.B. Webshop, Mobile App..." >
-                            
                         </div>
                         <div class="project-item">
                             <label for="uLink" data-lang="de">Projektlink:</label>
@@ -393,23 +404,48 @@
                     </div>
                 </div>
             </div> 
-            <button type="button" id="addProject">Weiteres Projekt hinzufügen</button><br><br>
-            <label for="picture" data-lang="de" >Bild hochladen:</label>
-            <label for="picture" data-lang="en" style="display:none;">Upload Picture:</label>
-            <label for="picture" data-lang="ku" style="display:none;">Wêne barkirin:</label>
-            <label for="picture" data-lang="ar" style="display:none;">تحميل الصورة:</label>
-            <input type="file" id="picture" name="picture" accept="image/*" required><br>
-
+            <button type="button" id="addProject">
+                <span data-lang="de">Weiteres Projekt hinzufügen</span>
+                <span data-lang="en" style="display:none;">Add another company</span>
+                <span data-lang="ku" style="display:none;">Projeyek din lê zêde bike</span>
+                <span data-lang="ar" style="display:none;">إضافة مشروع آخر</span>
+            </button><br><br><br><br>
+            <div class="picture-group">
+                <div class="picture-item">
+                    <label for="picture" data-lang="de" >Bild hochladen:</label>
+                    <label for="picture" data-lang="en" style="display:none;">Upload Picture:</label>
+                    <label for="picture" data-lang="ku" style="display:none;">Wêne barkirin:</label>
+                    <label for="picture" data-lang="ar" style="display:none;">تحميل الصورة:</label>
+                    <input type="file" id="picture" name="picture" accept="image/*" required><br>
+                </div>
+                <div class="picture-item">
+                    <label for="uYourEMail" data-lang="de">E-Mail:</label>
+                    <label for="uYourEMail" data-lang="en" style="display:none;">Email:</label>
+                    <label for="uYourEMail" data-lang="ku" style="display:none;">Email:</label>
+                    <label for="uYourEMail" data-lang="ar" style="display:none;">البريد الالكتروني: </label>
+                    <input type="text" id="uYourEMail" name="uYourEMail" placeholder="Ex. example@abc.com" >
+                </div>
+                <div class="picture-item">
+                    <label for="uWhatsapp" data-lang="de">WhatsApp-Nummer:</label>
+                    <label for="uWhatsapp" data-lang="en" style="display:none;">WhatsApp number:</label>
+                    <label for="uWhatsapp" data-lang="ku" style="display:none;">Hejmara WhatsApp:</label>
+                    <label for="uWhatsapp" data-lang="ar" style="display:none;">رقم الواتساب:</label>
+                    <input type="number" id="uWhatsapp" name="uWhatsapp" placeholder="Ex. 0049 111111111" >
+                </div>
+                <div class="picture-item">
+                    <label for="uInstaLink" data-lang="de">Instagram-Link:</label>
+                    <label for="uInstaLink" data-lang="en" style="display:none;">Instagram link:</label>
+                    <label for="uInstaLink" data-lang="ku" style="display:none;">linka Instagram:</label>
+                    <label for="uInstaLink" data-lang="ar" style="display:none;">رابط الانستغرام:</label>
+                    <input type="text" id="uInstaLink" name="uInstaLink" placeholder="Ex. https://www.Instagram.com/5425/me" >
+                </div>
+            </div>
             <button type="submit" data-lang="de" >Erstellen</button>
             <button type="submit" data-lang="en" style="display:none;">Create</button>
             <button type="submit" data-lang="ku" style="display:none;">Afirandin</button>
             <button type="submit" data-lang="ar" style="display:none;">إنشاء</button><br>
             </form>
 
-                <!--<div id="personalizedPage" style="display:none;">
-                    <h2>Willkommen, <span id="userName"></span>!</h2>
-                    <img id="userPicture" src="" alt="User Picture">
-                </div>-->
         </section>
     </main>
     <footer>
