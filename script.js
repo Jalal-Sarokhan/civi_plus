@@ -8,9 +8,7 @@ document.getElementById('personalizationForm').addEventListener('submit', functi
     const uDeteils = document.getElementById('uDeteils').value;
     const uFirma = Array.from(document.getElementsByName('uFirma[]')).map(input => input.value);
     const uRole = Array.from(document.getElementsByName('uRole[]')).map(input => input.value);
-    const uFromMonth = Array.from(document.getElementsByName('uFromMonth[]')).map(input => input.value);
     const uFromYear = Array.from(document.getElementsByName('uFromYear[]')).map(input => input.value);
-    const uToMonth = Array.from(document.getElementsByName('uToMonth[]')).map(input => input.value);
     const uToYear = Array.from(document.getElementsByName('uToYear[]')).map(input => input.value);
     const uProject = Array.from(document.getElementsByName('uProject[]')).map(input => input.value);
     const uProjectDesc = Array.from(document.getElementsByName('uProjectDesc[]')).map(input => input.value);
@@ -21,9 +19,9 @@ document.getElementById('personalizationForm').addEventListener('submit', functi
         let experienceList = '';
     uFirma.forEach((firma, index) => {
         experienceList += `
-            <li data-lang="de"><strong>${firma}</strong>  ${uRole[index]}  (${uFromMonth[index]} ${uFromYear[index]} - ${uToMonth[index]} ${uToYear[index]})</li>
-            <li data-lang="en" style="display:none;"><strong>${firma}</strong> ${uRole[index]} (${uFromMonth[index]} ${uFromYear[index]} - ${uToMonth[index]} ${uToYear[index]})</li>
-            <li data-lang="ku" style="display:none;"><strong>${firma}</strong> ${uRole[index]} (${uFromMonth[index]} ${uFromYear[index]} - ${uToMonth[index]} ${uToYear[index]})</li>
+            <li data-lang="de"><strong>${firma}</strong>  ${uRole[index]}  ( ${uFromYear[index]} -  ${uToYear[index]})</li>
+            <li data-lang="en" style="display:none;"><strong>${firma}</strong> ${uRole[index]} ( ${uFromYear[index]} -  ${uToYear[index]})</li>
+            <li data-lang="ku" style="display:none;"><strong>${firma}</strong> ${uRole[index]} ( ${uFromYear[index]} -  ${uToYear[index]})</li>
             <li data-lang="ar" style="display:none;"><strong>${firma}</strong>  (مارس 2022 - ديسمبر 2022) ${uRole[index]} </li>
         `;
     });
@@ -218,53 +216,45 @@ document.getElementById('addCompany').addEventListener('click', function() {
     newCompanyField.classList.add('companyField');
 
     newCompanyField.innerHTML = `
-        <label for="uFirma">
-            <span data-lang="de">Firma oder Institut:</span>
-            <span data-lang="en" style="display:none;">Company or Institute:</span>
-            <span data-lang="ku" style="display:none;">Şîrket an Enstîtu:</span>
-            <span data-lang="ar" style="display:none;">شركة أو معهد:</span>
-        </label>
-        <input type="text" name="uFirma[]" placeholder="z.B. BASF, Amazon, SAP, Lidl...">
-
-        <label for="uRole">
-            <span data-lang="de">Beruf:</span>
-            <span data-lang="en" style="display:none;">Role:</span>
-            <span data-lang="ku" style="display:none;">Kar:</span>
-            <span data-lang="ar" style="display:none;">دور:</span>
-        </label>
-        <input type="text" name="uRole[]" placeholder="z.B. Softwareentwickler">
-
-        <label for="uFromMonth">
-            <span data-lang="de">Vom Monat:</span>
-            <span data-lang="en" style="display:none;">From Month:</span>
-            <span data-lang="ku" style="display:none;">Ji Meha:</span>
-            <span data-lang="ar" style="display:none;">من شهر:</span>
-        </label>
-        <input type="text" name="uFromMonth[]" placeholder="z.B. März">
-
-        <label for="uFromYear">
-            <span data-lang="de">Vom Jahr:</span>
-            <span data-lang="en" style="display:none;">From Year:</span>
-            <span data-lang="ku" style="display:none;">Ji Sala:</span>
-            <span data-lang="ar" style="display:none;">من سنة:</span>
-        </label>
-        <input type="text" name="uFromYear[]" placeholder="z.B. 2022">
-
-        <label for="uToMonth">
-            <span data-lang="de">Bis Monat:</span>
-            <span data-lang="en" style="display:none;">To Month:</span>
-            <span data-lang="ku" style="display:none;">Heta Meh:</span>
-            <span data-lang="ar" style="display:none;">إلى شهر:</span>
-        </label>
-        <input type="text" name="uToMonth[]" placeholder="z.B. Dezember">
-
-        <label for="uToYear">
-            <span data-lang="de">Bis Jahr:</span>
-            <span data-lang="en" style="display:none;">To Year:</span>
-            <span data-lang="ku" style="display:none;">Heta Sal:</span>
-            <span data-lang="ar" style="display:none;">إلى سنة:</span>
-        </label>
-        <input type="text" name="uToYear[]" placeholder="z.B. 2022">
+        <div class="input-group">
+                        <div class="input-item">
+                            <label for="uFirma">
+                                <span data-lang="de">Firma oder Institut:</span>
+                                <span data-lang="en" style="display:none;">Company or Institute:</span>
+                                <span data-lang="ku" style="display:none;">Şîrket an Enstîtu:</span>
+                                <span data-lang="ar" style="display:none;">شركة أو معهد:</span>
+                            </label>
+                            <input type="text" name="uFirma[]" placeholder="z.B. BASF, Amazon, SAP, Lidl...">
+                        </div>
+                        <div class="input-item">
+                            <label for="uRole">
+                                <span data-lang="de">Beruf:</span>
+                                <span data-lang="en" style="display:none;">Role:</span>
+                                <span data-lang="ku" style="display:none;">Kar:</span>
+                                <span data-lang="ar" style="display:none;">دور:</span>
+                            </label>
+                            <input type="text" name="uRole[]" placeholder="z.B. Softwareentwickler">
+                        </div>
+                       
+                        <div class="input-item">
+                            <label for="uFromYear">
+                                <span data-lang="de">Vom:</span>
+                                <span data-lang="en" style="display:none;">From:</span>
+                                <span data-lang="ku" style="display:none;">Ji:</span>
+                                <span data-lang="ar" style="display:none;">من :</span>
+                            </label>
+                            <input type="date" name="uFromYear[]" max="" id="fromYear" onchange="checkDate('fromYear', 'fromMonth')">
+                        </div>
+                        <div class="input-item">
+                            <label for="uToYear">
+                                <span data-lang="de">Bis :</span>
+                                <span data-lang="en" style="display:none;">To :</span>
+                                <span data-lang="ku" style="display:none;">Heta :</span>
+                                <span data-lang="ar" style="display:none;">إلى:</span>
+                            </label>
+                            <input type="date" name="uToYear[]" max="" id="toYear" onchange="checkDate('toYear', 'toMonth')">
+                        </div>
+                    </div>
     `;
     companyFields.appendChild(newCompanyField);
 });
@@ -279,7 +269,7 @@ document.getElementById('addProject').addEventListener('click', function() {
         <label for="uProject" data-lang="en" style="display:none;">Project Name:</label>
         <label for="uProject" data-lang="ku" style="display:none;">Navê Projeyê:</label>
         <label for="uProject" data-lang="ar" style="display:none;">اسم المشروع:</label>
-        <input type="text" name="uProject[]" placeholder="z.B. Webshop, Mobile App...">
+        <input type="text" name="uProject[]" placeholder="z.B. Webshop, Mobile App..." style="align-items: center ;width: 20%;">
         <label for="uProjectDesc" data-lang="de">Projektbeschreibung:</label>
         <label for="uProjectDesc" data-lang="en" style="display:none;">Project Description:</label>
         <label for="uProjectDesc" data-lang="ku" style="display:none;">Terîfa Projeyê:</label>
