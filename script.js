@@ -242,10 +242,10 @@ document.getElementById('personalizationForm').addEventListener('submit', functi
                     <h1 data-lang="ar" style="display:none;"><a href="mailto:${uYourEMail}">البريد الالكتروني: ${uYourEMail} </a></h1>
                     </div>
                     <div class="contact-item">
-                    <h1><a href="https://wa.me/${uWhatsapp}">Whatsapp</a><h1>
+                    <h1><a href="https://wa.me/${uWhatsapp}" target="_blank" >Whatsapp</a><h1>
                     </div>
                     <div class="contact-item">
-                    <h1><a href="${uInstaLink}">Instagram</a><h1>
+                    <h1><a href="${uInstaLink}" target="_blank">Instagram</a><h1>
                     </div>
                     <div class="contact-item">
                     <h1 data-lang="de" style="text-align: center;"> <a href="https://jalal-sarokhan.github.io/civi_plus/#new" target="_blank"> Personalisierte Seite erstellen </a></h1>
