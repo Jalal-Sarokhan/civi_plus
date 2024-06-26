@@ -129,6 +129,30 @@
             display: flex;
             justify-content: center;
         }
+        /* Responsive adjustments for the 'new' section */
+        @media (max-width: 768px) {
+            .input-group, .project-group, .picture-group {
+                flex-direction: column;
+            }
+
+            .input-item, .project-item, .picture-item {
+                margin-right: 0;
+                margin-bottom: 10px;
+                padding-right: 0;
+            }
+        }
+         /* CSS für die Ausklappfunktion */
+         .hidden {
+            display: none;
+        }
+        .hidden-button{
+        font-size: 20px; /* Schriftgröße */
+        background-color: rgba(0, 0, 0, 0.2); /* Hintergrund mit 20% Transparenz */
+        color: rgb(231, 235, 238);
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+        }
     </style>
 </head>
 <body>
@@ -278,12 +302,13 @@
             </form>
         </section>
         <section id="new">
-            <h1 data-lang="de" style="text-align: center;">Personalisierte Seite erstellen</h1>
-            <h1 data-lang="en" style="display:none;text-align: center;">create personalized webpage</h1>
-            <h1 data-lang="ku" style="display:none;text-align: center;">nzanem be cia</h1>
-            <h1 data-lang="ar" style="display:none;text-align: center;">أنشاء صفحة شخصية</h1>
-        
-            <form id="personalizationForm">
+            <button type="button" class="hidden-button" id="toggle-button" data-lang="de" style="text-align: center;">Personalisierte Seite erstellen</button>
+            <button type="button" class="hidden-button" id="toggle-button" data-lang="en" style="display:none;text-align: center;">create personalized webpage</button>
+            <button type="button" class="hidden-button" id="toggle-button" data-lang="ku" style="display:none;text-align: center;">nzanem be cia</button>
+            <button type="button" class="hidden-button" id="toggle-button" data-lang="ar" style="display:none;text-align: center;">أنشاء صفحة شخصية</button>
+
+            <br><br>
+            <form id="personalizationForm" class="hidden" style="display: none;">
                 <div class="input-group">
                     <div class="input-item">
                         <label for="uname" data-lang="de">Name der Webseite:</label>
@@ -493,6 +518,16 @@
                     element.style.display = 'none';
                 }
             });
+        });
+        // Ausklappfunktion für new-section
+        var formSection = document.getElementsByClassName('hidden')[0]; // Zugriff auf das erste Element mit der Klasse 'hidden'
+        document.getElementById('toggle-button').addEventListener('click', function(event) {
+            if (formSection.style.display === 'none' || formSection.style.display === ' ') {
+                console.log("schaumal hier", formSection.style.display);
+                formSection.style.display = 'block';
+            } else {
+                formSection.style.display = 'none';
+            }
         });
     </script>
     
