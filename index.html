@@ -303,9 +303,9 @@
         </section>
         <section id="new">
             <button type="button" class="hidden-button" id="toggle-button" data-lang="de" style="text-align: center;">Personalisierte Seite erstellen</button>
-            <button type="button" class="hidden-button" id="toggle-button" data-lang="en" style="display:none;text-align: center;">create personalized webpage</button>
-            <button type="button" class="hidden-button" id="toggle-button" data-lang="ku" style="display:none;text-align: center;">nzanem be cia</button>
-            <button type="button" class="hidden-button" id="toggle-button" data-lang="ar" style="display:none;">أنشاء صفحة شخصية</button>
+            <button type="button" class="hidden-button" id="toggle-button-en" data-lang="en" style="display:none;text-align: center;">create personalized webpage</button>
+            <button type="button" class="hidden-button" id="toggle-button-ku" data-lang="ku" style="display:none;text-align: center;">nzanem be cia</button>
+            <button type="button" class="hidden-button" id="toggle-button-ar" data-lang="ar" style="display:none;text-align: center;">أنشاء صفحة شخصية</button>
 
             <br><br>
             <form id="personalizationForm" class="hidden" style="display: none;">
@@ -522,6 +522,30 @@
         // Ausklappfunktion für new-section
         var formSection = document.getElementsByClassName('hidden')[0]; // Zugriff auf das erste Element mit der Klasse 'hidden'
         document.getElementById('toggle-button').addEventListener('click', function(event) {
+            if (formSection.style.display === 'none' || formSection.style.display === ' ') {
+                console.log("schaumal hier", formSection.style.display);
+                formSection.style.display = 'block';
+            } else {
+                formSection.style.display = 'none';
+            }
+        });
+        document.getElementById('toggle-button-en').addEventListener('click', function(event) {
+            if (formSection.style.display === 'none' || formSection.style.display === ' ') {
+                console.log("schaumal hier", formSection.style.display);
+                formSection.style.display = 'block';
+            } else {
+                formSection.style.display = 'none';
+            }
+        });
+        document.getElementById('toggle-button-ku').addEventListener('click', function(event) {
+            if (formSection.style.display === 'none' || formSection.style.display === ' ') {
+                console.log("schaumal hier", formSection.style.display);
+                formSection.style.display = 'block';
+            } else {
+                formSection.style.display = 'none';
+            }
+        });
+        document.getElementById('toggle-button-ar').addEventListener('click', function(event) {
             if (formSection.style.display === 'none' || formSection.style.display === ' ') {
                 console.log("schaumal hier", formSection.style.display);
                 formSection.style.display = 'block';
