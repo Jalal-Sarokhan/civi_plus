@@ -92,6 +92,8 @@ document.getElementById('personalizationForm').addEventListener('submit', functi
                     background: url('${e.target.result}') no-repeat center center fixed;
                     background-size: cover;
                     color: white;
+                    text-align: center;
+                    align-items: center;
                 }
                 header nav ul {
                     list-style: none;
@@ -109,8 +111,12 @@ document.getElementById('personalizationForm').addEventListener('submit', functi
                 section {
                     padding: 50px;
                     background: rgba(0, 0, 0, 0.7);
-                    margin: 20px;
+                    margin: auto;
+                    margin-top: 20px;
+                    margin-bottom: 20px;
                     border-radius: 10px;
+                    max-width: 50%;
+                    text-align: center;
                 }
                 .profile-pic {
                     display: block;
@@ -244,6 +250,8 @@ document.getElementById('personalizationForm').addEventListener('submit', functi
                     <div class="contact-item">
                     <h1><a href="https://wa.me/${uWhatsapp}" target="_blank" >Whatsapp</a><h1>
                     </div>
+                </div>
+                <div class="contact-group">
                     <div class="contact-item">
                     <h1><a href="${uInstaLink}" target="_blank">Instagram</a><h1>
                     </div>
