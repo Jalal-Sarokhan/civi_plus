@@ -94,10 +94,24 @@ document.getElementById('personalizationForm').addEventListener('submit', functi
                     color: white;
                     text-align: center;
                     align-items: center;
+                    list-style: none;
+                }
+                header {
+                    background-color: rgb(199, 122, 215);
+                    background: rgba(0, 0, 0, 0.9);
+                    color: #fff;
+                    text-align: center;
+                    align-items: center;
+                    padding: 10px;
+                    position: fixed;
+                    place-content: end space-between;
+                    top:0;
+                    width: 100%;
                 }
                 header nav ul {
                     list-style: none;
                     padding: 0;
+                    display: block; 
                 }
                 header nav ul li {
                     display: inline;
@@ -164,6 +178,7 @@ document.getElementById('personalizationForm').addEventListener('submit', functi
                     display: flex;
                     flex-wrap: wrap; 
                     justify-content: space-between;
+                    list-style: none;
                 }
                 .contact-item {
                     flex: 1 1 45%; 
@@ -252,10 +267,10 @@ document.getElementById('personalizationForm').addEventListener('submit', functi
                 <h1 data-lang="ar" style="display:none;text-align: center;">اتصل</h1>
                 <div class="contact-group">
                     <div class="contact-item">
-                    <h1 data-lang="de"><a href="mailto:${uYourEMail}">E-Mail: ${uYourEMail}</a></h1>
-                    <h1 data-lang="en" style="display:none;"><a href="mailto:${uYourEMail}">Email: ${uYourEMail}</a></h1> 
-                    <h1 data-lang="ku" style="display:none;"><a href="mailto:${uYourEMail}">Email: ${uYourEMail} </a></h1>
-                    <h1 data-lang="ar" style="display:none;"><a href="mailto:${uYourEMail}">البريد الالكتروني: ${uYourEMail} </a></h1>
+                    <h1 data-lang="de"><a href="mailto:${uYourEMail}">E-Mail</a></h1>
+                    <h1 data-lang="en" style="display:none;"><a href="mailto:${uYourEMail}">Email</a></h1> 
+                    <h1 data-lang="ku" style="display:none;"><a href="mailto:${uYourEMail}">Email</a></h1>
+                    <h1 data-lang="ar" style="display:none;"><a href="mailto:${uYourEMail}">البريد الالكتروني</a></h1>
                     </div>
                     <div class="contact-item">
                     <h1><a href="https://wa.me/${uWhatsapp}" target="_blank" >Whatsapp</a><h1>
