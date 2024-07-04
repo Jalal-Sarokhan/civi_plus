@@ -246,47 +246,40 @@ document.getElementById('personalizationForm').addEventListener('submit', functi
                     ${projectsList}
                 </section>
                 <section id="contact">
-                    <h1 style="text-align: center;" data-lang="de">Kontakt</h1>
-                    <h1 data-lang="en" style="display:none;text-align: center;">Contact</h1>
-                    <h1 data-lang="ku" style="display:none;text-align: center;">Têkilî</h1>
-                    <h1 data-lang="ar" style="display:none;text-align: center;">اتصل</h1>
-                    <div class="contact-group">
-                        <div class="contact-item" data-lang="de">
-                            <p>Telefon: ${phone}</p>
-                            <p>Email: ${email}</p>
-                            <p>Adresse: ${address}</p>
-                        </div>
-                        <div class="contact-item" data-lang="en" style="display:none;">
-                            <p>Phone: ${phone}</p>
-                            <p>Email: ${email}</p>
-                            <p>Address: ${address}</p>
-                        </div>
-                        <div class="contact-item" data-lang="ku" style="display:none;">
-                            <p>Telefon: ${phone}</p>
-                            <p>Email: ${email}</p>
-                            <p>Navnîşan: ${address}</p>
-                        </div>
-                        <div class="contact-item" data-lang="ar" style="display:none;">
-                            <p>الهاتف: ${phone}</p>
-                            <p>البريد الإلكتروني: ${email}</p>
-                            <p>العنوان: ${address}</p>
-                        </div>
+                <h1 style="text-align: center;" data-lang="de">Kontakt</h1>
+                <h1 data-lang="en" style="display:none;text-align: center;">Contact</h1>
+                <h1 data-lang="ku" style="display:none;text-align: center;">Têkilî</h1>
+                <h1 data-lang="ar" style="display:none;text-align: center;">اتصل</h1>
+                <div class="contact-group">
+                    <div class="contact-item">
+                    <h1 data-lang="de"><a href="mailto:${uYourEMail}">E-Mail: ${uYourEMail}</a></h1>
+                    <h1 data-lang="en" style="display:none;"><a href="mailto:${uYourEMail}">Email: ${uYourEMail}</a></h1> 
+                    <h1 data-lang="ku" style="display:none;"><a href="mailto:${uYourEMail}">Email: ${uYourEMail} </a></h1>
+                    <h1 data-lang="ar" style="display:none;"><a href="mailto:${uYourEMail}">البريد الالكتروني: ${uYourEMail} </a></h1>
                     </div>
+                    <div class="contact-item">
+                    <h1><a href="https://wa.me/${uWhatsapp}" target="_blank" >Whatsapp</a><h1>
+                    </div>
+                </div>
+                <div class="contact-group">
+                    <div class="contact-item">
+                    <h1><a href="${uInstaLink}" target="_blank">Instagram</a><h1>
+                    </div>
+                    <div class="contact-item">
+                    <h1 data-lang="de" style="text-align: center;"> <a href="https://jalal-sarokhan.github.io/civi_plus/#new" target="_blank"> Personalisierte Seite erstellen </a></h1>
+                    <h1 data-lang="en" style="display:none;"> <a href="https://jalal-sarokhan.github.io/civi_plus/#new" target="_blank"> create personalized webpage </a></h1>
+                    <h1 data-lang="ku" style="display:none;"> <a href="https://jalal-sarokhan.github.io/civi_plus/#new" target="_blank"> nzanem be cia </a></h1>
+                    <h1 data-lang="ar" style="display:none;"> <a href="https://jalal-sarokhan.github.io/civi_plus/#new" target="_blank"> أنشاء صفحة شخصية</a></h1>
+                    </div>
+                </div>
                 </section>
             </main>
-            <footer>
-                <p>&copy; ${new Date().getFullYear()} ${name}. All rights reserved.</p>
-            </footer>
             <script>
                 document.getElementById('languageSelector').addEventListener('change', function() {
-                    var selectedLang = this.value;
-                    var elements = document.querySelectorAll('[data-lang]');
-                    elements.forEach(function(el) {
-                        if (el.getAttribute('data-lang') === selectedLang) {
-                            el.style.display = '';
-                        } else {
-                            el.style.display = 'none';
-                        }
+                    const selectedLanguage = this.value;
+                    const elements = document.querySelectorAll('[data-lang]');
+                    elements.forEach(element => {
+                        element.style.display = element.getAttribute('data-lang') === selectedLanguage ? '' : 'none';
                     });
                 });
             </script>
