@@ -139,6 +139,10 @@ document.getElementById('personalizationForm').addEventListener('submit', functi
                     display: block;
                     margin: 0 auto 20px auto;
                     max-width: 200px;
+                    height: 200px; 
+                    object-fit: cover; 
+                    object-position: center; 
+                    display: block;
                     border-radius: 50%;
                 }
                 form label {
