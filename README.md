@@ -9,4 +9,4 @@ Inhaltsverzeichnis
 
 Webpage: https://jalal-sarokhan.github.io/civi_plus/
 
-![Screenshot_2024-08-07](https://github.com/user-attachments/assets/5b5b57fb-2f8c-476d-b416-ce1a3b5f6cbb)
+![Screenshot_2024-08-07](https://jalal-sarokhan.github.io/civi_plus/)
