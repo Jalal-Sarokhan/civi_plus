@@ -9,4 +9,8 @@ Inhaltsverzeichnis
 
 Webpage: https://jalal-sarokhan.github.io/civi_plus/
 
-![Screenshot_2024-08-07](https://jalal-sarokhan.github.io/civi_plus/)
+<a href="https://jalal-sarokhan.github.io/civi_plus/" target="blank">
+  <img src="https://github.com/user-attachments/assets/df81d92e-00c3-4ea8-9184-fc781802242a" alt="JIS Portfolio">
+</a>
+
+
